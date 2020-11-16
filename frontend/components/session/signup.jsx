@@ -3,6 +3,7 @@ import React from 'react';
 class Signup extends React.Component {
     constructor(props) {
         super(props) 
+        
         this.state = {
             email: "",
             password: "",
@@ -17,7 +18,7 @@ class Signup extends React.Component {
     }
 
     handleSumbit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         this.props.createNewUser(this.state).then(() => this.props.history.push('/notes'))
     }
 
@@ -29,12 +30,12 @@ class Signup extends React.Component {
                 <input 
                 type="text"
                 value={this.state.email}
-                onChange={this.handleInput('email')}
+                onChange={this.handleField('email')}
                 />
                 <input 
                 type="password"
                 value={this.state.password}
-                onChange={this.handleInput('password')}
+                onChange={this.handleField('password')}
                 />
                 <button onClick={this.handleSumbit}>Continue</button>
             </form>
