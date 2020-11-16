@@ -3,6 +3,7 @@ import { postSession, postUser, deleteSession } from '../util/session';
 //action types
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 //action creators
 const receiveCurrentUser = (user) => {
@@ -18,15 +19,20 @@ const logoutCurrentUser = () => {
     }
 }
 
+const receiveErrors = (errors) => ({
+    type: RECEIVE_ERRORS,
+    errors: errors,
+})
+
 //thunk action creators
-export const createNewUser = (formUser) => dispatch => {
+export const signupAction = (formUser) => dispatch => {
     return postUser(formUser).then(user => dispatch(receiveCurrentUser(user)));
 }
 
-export const login = formUser => dispatch => {
+export const loginAction = formUser => dispatch => {
     return postSession(formUser).then(user => dispatch(receiveCurrentUser(user)));
 }
 
-export const logout = () => dispatch => {
+export const logoutAction = () => dispatch => {
     return deleteSession().then(() => dispatch(logoutCurrentUser()));
 }

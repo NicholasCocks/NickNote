@@ -8,7 +8,7 @@ class Signup extends React.Component {
             email: "",
             password: "",
         };
-        this.handleSumbit = this.handleSumbit.bind(this)``
+        this.handleSumbit = this.handleSumbit.bind(this)
     }
 
     handleField(field) {
@@ -18,26 +18,30 @@ class Signup extends React.Component {
     }
 
     handleSumbit(e) {
-        // e.preventDefault();
-        this.props.createNewUser(this.state).then(() => this.props.history.push('/notes'))
+        e.preventDefault()
+        this.props.signupAction(this.state).then(() => this.props.history.push('/notes'))
     }
 
     render() {
         return (<div className="session_form">
             <h1>Nick Note</h1>
             <p>remember everything important</p>
-            <form>
-                <input 
-                type="text"
-                value={this.state.email}
-                onChange={this.handleField('email')}
-                />
-                <input 
-                type="password"
-                value={this.state.password}
-                onChange={this.handleField('password')}
-                />
-                <button onClick={this.handleSumbit}>Continue</button>
+            <form onSubmit={this.handleSumbit}>
+                <label>
+                    <input 
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.handleField('email')}
+                    />
+                </label>
+                <label>
+                    <input 
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleField('password')}
+                    />
+                </label>
+                <input className="session-submit" type="submit" value="continue" />
             </form>
         </div>)
     }
