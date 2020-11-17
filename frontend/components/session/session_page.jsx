@@ -11,7 +11,7 @@ class SessionPage extends React.Component {
         <div className="session_page">
             <div className="session_page_header">
                 <h1>Nicknote</h1>
-                <p>remember everything important</p>
+                <p>Remember everything important.</p>
             </div>
              <Switch>
                 <AuthRoute exact path="/session/login" component={LoginFormContainer}/>

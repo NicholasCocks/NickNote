@@ -45,6 +45,24 @@
         width: 240px;
         height: 25px;
     }
+    button {
+        margin: 8px;
+        border: 1px solid $off-white;
+        border-radius: 4px;
+        padding: 3px;
+        width: 240px;
+        height: 25px;
+        background-color: $amber;
+        color: black;
+        text-align: center;
+    }
+    button:hover {
+        background-color: $yellow;
+    }
+}
+
+.error_messages {
+    color: red;
 }
 
 .session_submit {

@@ -30,11 +30,14 @@ class SessionForm extends React.Component {
     render() {
 
         const errors = this.props.errors.map((error, i) => {
-            return <p key={i}>{error}</p>
+            return <p key={i} >{error}</p>
         });
 
         return (
             <form onSubmit={this.handleSumbit} className="session_form">
+                <label className="error_messages">
+                    <div>{errors}</div>
+                </label>
                 <label>
                     <input 
                     type="text"
@@ -50,13 +53,21 @@ class SessionForm extends React.Component {
                     onChange={this.handleField('password')}
                     placeholder="Password"
                     />
-                </label>
-                <div>{errors}</div>
+                </label> 
                 <label>
                     <input 
                     className="session_submit" 
                     type="submit" 
-                    value={this.props.formType} />
+                    value={this.props.formType} 
+                    />
+                </label>
+                <label>
+                    <button 
+                    className="session_demo_user" 
+                    type="button" 
+                    value="Demo User" 
+                    onClick={() => {this.props.demoUser()}}
+                    > Demo User </button>
                 </label>
                 <p>{this.props.blurb}</p>
                 <p>{this.props.sessionLink}</p>

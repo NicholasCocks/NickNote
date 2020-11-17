@@ -45,3 +45,7 @@ export const loginAction = formUser => dispatch => {
 export const logoutAction = () => dispatch => {
     return deleteSession().then(() => { dispatch(logoutCurrentUser()) }, errors => { dispatch(receiveSessionErrors(errors)) });
 }
+
+export const loginDemoUser = () => dispatch => {
+    return postSession({ email: "demo@user.com", password: "$gk991uIOwf9" }).then(user => { dispatch(receiveCurrentUser(user)) });
+}
