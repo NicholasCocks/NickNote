@@ -6,7 +6,9 @@ class Splash extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/session" >signup</Link>
+                <div className="session-link-button">
+                    <Link to="/session" >signup</Link>
+                </div>
             </div>
         )
     }

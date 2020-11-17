@@ -1,0 +1,60 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.session_page {
+    background-color: $off-white;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px // font-family: Arial, Helvetica, sans-serif;
+}
+
+.session_page_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    h1 {
+        font-size: 50px;
+    }
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 20px;
+    }
+}
+
+.session_form {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    input {
+        margin: 8px;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 3px;
+        width: 240px;
+        height: 25px;
+    }
+}
+
+.session_submit {
+    color: white;
+    background-color: $dark-purple;
+    text-align: center;
+    padding: 10px;
+    width: 100px;
+}
+
+.session_submit:hover {
+    background-color: $darkest-purple;
+}
