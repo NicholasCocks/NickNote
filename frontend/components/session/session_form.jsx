@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Signup extends React.Component {
+class SessionForm extends React.Component {
     constructor(props) {
         super(props) 
         
@@ -11,6 +11,11 @@ class Signup extends React.Component {
         this.handleSumbit = this.handleSumbit.bind(this)
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+    
+
     handleField(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });
@@ -19,13 +24,16 @@ class Signup extends React.Component {
 
     handleSumbit(e) {
         e.preventDefault()
-        this.props.signupAction(this.state).then(() => this.props.history.push('/notes'))
+        this.props.processForm(this.state).then(() => this.props.history.push('/notes'))
     }
 
     render() {
-        return (<div className="session_form">
-            <h1>Nick Note</h1>
-            <p>remember everything important</p>
+
+        const errors = this.props.errors.map((error, i) => {
+            return <p key={i}>{error}</p>
+        });
+
+        return (
             <form onSubmit={this.handleSumbit}>
                 <label>
                     <input 
@@ -41,10 +49,13 @@ class Signup extends React.Component {
                     onChange={this.handleField('password')}
                     />
                 </label>
-                <input className="session-submit" type="submit" value="continue" />
+                <div>{errors}</div>
+                <input className="session-submit" type="submit" value={this.props.formType} />
+                <p>{this.props.blurb}</p>
+                <p>{this.props.sessionLink}</p>
             </form>
-        </div>)
+        )
     }
 }
 
-export default Signup;
+export default SessionForm;

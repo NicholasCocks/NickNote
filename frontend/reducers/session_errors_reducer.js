@@ -1,4 +1,4 @@
-import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session';
+import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../actions/session';
 
 
 function sessionErrorsReducer(state = [], action) {
@@ -6,9 +6,12 @@ function sessionErrorsReducer(state = [], action) {
     switch (action.type) {
         case (RECEIVE_CURRENT_USER):
             return [];
+        case (CLEAR_ERRORS):
+            let blankState = Object.assign({}, { errors: [""] });
+            return Object.values(blankState);
         case (RECEIVE_ERRORS):
-            const newState = Object.assign(state, { errors: action.errors })
-            return Object.values(newState)
+            const newState = Object.assign({}, { errors: [action.errors.responseJSON] })
+            return Object.values(newState);
         default:
             return state;
     }

@@ -1,15 +1,17 @@
 import React from "react";
 import SignupContainer from './session/signup_container';
-import { Route } from 'react-router-dom';
+import SessionPage from '../components/session/session_page'
+import { ProtectedRoute, AuthRoute } from '../util/route_util'
 import Splash from "./splash/splash";
-import NotesIndex from './notes/notes_index';
+import NotesIndexContainer from './notes/notes_index_container';
 
 const App = () => {
     return (
         <div>
-            <Route path="/signup" component={SignupContainer} />
-            <Route exact path="/" component={Splash} />
-            <Route exact path="/notes" component={NotesIndex} />
+            {/* <AuthRoute exact path="/signup" component={SignupContainer} /> */}
+            <AuthRoute path="/session" component={SessionPage}/>
+            <AuthRoute exact path="/" component={Splash} />
+            <ProtectedRoute exact path="/notes" component={NotesIndexContainer} />
         </div>
     )
 }
