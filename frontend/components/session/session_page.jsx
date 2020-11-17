@@ -9,9 +9,10 @@ class SessionPage extends React.Component {
     render() {
         return (
         <div className="session_background_picture">
-            <img src="assets/leaves.jpg" class="session_background_picture"></img>
+            <img src="assets/leaves.jpg" className="session_background_picture"></img>
             <div className="session_page">
                 <div className="session_page_header">
+                    <img src="assets/sloth3.png" className="session_logo"></img>
                     <h1>Nicknote</h1>
                     <p>Remember everything important.</p>
                 </div>

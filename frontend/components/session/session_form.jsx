@@ -1,22 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props) 
-        
-        this.state = {
-            email: "",
-            password: "",
-        };
+        this.state = {email: "", password: "", passwordShown: false};
         this.handleSumbit = this.handleSumbit.bind(this)
+        this.togglePassword = this.togglePassword.bind(this);
     }
 
     componentWillUnmount() {
         this.props.clearErrors();
     }
-    
 
     handleField(field) {
         return (e) => {
@@ -26,7 +23,15 @@ class SessionForm extends React.Component {
 
     handleSumbit(e) {
         e.preventDefault()
+        delete this.state["passwordShown"]
         this.props.processForm(this.state).then(() => this.props.history.push('/notes'))
+    }
+
+    togglePassword() {
+        if (this.state.passwordShown === true) { this.setState({passwordShown: false}) 
+        } else {
+            this.setState({passwordShown: true})
+        }
     }
 
     render() {
@@ -34,6 +39,8 @@ class SessionForm extends React.Component {
         const errors = this.props.errors.map((error, i) => {
             return <p key={i} >{error}</p>
         });
+
+        const picon = () => { if (this.state.passwordShown){ return faEye } else {return faEyeSlash}}
 
         return (
             <form onSubmit={this.handleSumbit} className="session_form">
@@ -46,18 +53,18 @@ class SessionForm extends React.Component {
                     value={this.state.email}
                     onChange={this.handleField('email')}
                     placeholder="Email"
-                    id="session_dynamic_inputs"
+                    className="session_dynamic_inputs"
                     />
                 </label>
                 <label>
                     <input 
-                    type="password"
+                    type={this.state.passwordShown ? "text" : "password"}
                     value={this.state.password}
                     onChange={this.handleField('password')}
                     placeholder="Password"
-                    id="session_dynamic_inputs"
+                    className="session_dynamic_inputs"
                     />
-                    <FontAwesomeIcon icon={faCoffee} />
+                    <FontAwesomeIcon icon={picon()} className="session_password_toggle_icon" onClick={() => {this.togglePassword()}}/>
                 </label> 
                 <label>
                     <input 

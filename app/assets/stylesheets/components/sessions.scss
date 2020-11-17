@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .session_background_picture {
-    // background-color: red;
-    background-image: image-url("./assets/20201025-IMG_0208.jpg");
-    // width: 900px;
     width: 100vw;
     height: 100vh;
     margin-left: auto;
@@ -12,7 +9,6 @@
 }
 
 .session_page {
-    // background-color: $darkest-purple;
     background: rgba(71, 67, 107, 0.9);
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.9);
     height: 100%;
@@ -24,7 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px // font-family: Arial, Helvetica, sans-serif;
+    width: 400px
 }
 
 .session_page_header {
@@ -33,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     h1 {
         font-weight: 200px;
         font-size: 50px;
@@ -43,6 +39,11 @@
         margin-bottom: 20px;
         font-size: small;
     }
+}
+
+.session_logo {
+    width: 80px;
+    margin: 0;
 }
 
 .session_form {
@@ -67,13 +68,13 @@
         padding: 3px;
         width: 240px;
         height: 25px;
-        background-color: #f79e2b;
+        background-color: $amber;
         color: black;
         font-size: small;
         text-align: center;
     }
     button:hover {
-        background-color: $amber;
+        background-color: #fcba65;
     }
 }
 
@@ -85,7 +86,7 @@
     font-size: small;
 }
 
-#session_dynamic_inputs {
+.session_dynamic_inputs {
     border: 1px solid white;
     background-color: white;
     justify-content: center;
@@ -103,9 +104,16 @@ input::-webkit-input-placeholder {
     // text-align: center;
 }
 
+.session_password_toggle_icon {
+    position: absolute;
+    right: 90px;
+    margin-top: 17px;
+    color: $gray;
+}
+
 .session_submit {
     color: white;
-    background-color: $dark-purple;
+    background-color: $darkest-purple;
     text-align: center;
     padding: 10px;
     width: 100px;
@@ -113,7 +121,7 @@ input::-webkit-input-placeholder {
 }
 
 .session_submit:hover {
-    background-color: $darkest-purple;
+    background-color: black;
 }
 
 .session_footer {
@@ -129,7 +137,8 @@ input::-webkit-input-placeholder {
 }
 
 .session_link {
-    margin-top: 3px;
+    margin-top: 5px;
     font-size: 14px;
     color: $off-white;
+    margin-bottom: 25px;
 }
