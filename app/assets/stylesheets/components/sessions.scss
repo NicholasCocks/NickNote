@@ -92,9 +92,9 @@
     justify-content: center;
 }
 
-#session_dynamic_inputs:focus {
-    border: 1px solid $off-white;
-    box-shadow: 0px 4px 10px rgba(138, 138, 138, 0.9);
+.session_dynamic_inputs:focus {
+    border: 1px solid $dark-gray;
+    box-shadow: 0px 4px 10px rgba(138, 138, 138, 0.4);
 }
 
 input::-webkit-input-placeholder {
