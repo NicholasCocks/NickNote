@@ -1,9 +1,20 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.session_background_picture {
+    // background-color: red;
+    background-image: image-url("./assets/20201025-IMG_0208.jpg");
+    // width: 900px;
+    width: 100vw;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .session_page {
-    background-color: $off-white;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+    // background-color: $darkest-purple;
+    background: rgba(71, 67, 107, 0.9);
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.9);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,16 +29,19 @@
 
 .session_page_header {
     display: flex;
+    color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
     h1 {
+        font-weight: 200px;
         font-size: 50px;
     }
     p {
         font-family: Arial, Helvetica, sans-serif;
         margin-bottom: 20px;
+        font-size: small;
     }
 }
 
@@ -39,30 +53,54 @@
     align-items: center;
     input {
         margin: 8px;
-        border: 1px solid black;
         border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.0);
         padding: 3px;
+        font-size: small;
         width: 240px;
         height: 25px;
     }
     button {
         margin: 8px;
-        border: 1px solid $off-white;
+        border: 1px solid rgba(0, 0, 0, 0.0);
         border-radius: 4px;
         padding: 3px;
         width: 240px;
         height: 25px;
-        background-color: $amber;
+        background-color: #f79e2b;
         color: black;
+        font-size: small;
         text-align: center;
     }
     button:hover {
-        background-color: $yellow;
+        background-color: $amber;
     }
 }
 
 .error_messages {
+    width: 100%;
+    height: 20px;
+    text-align: center;
     color: red;
+    font-size: small;
+}
+
+#session_dynamic_inputs {
+    border: 1px solid white;
+    background-color: white;
+    justify-content: center;
+}
+
+#session_dynamic_inputs:focus {
+    border: 1px solid $off-white;
+    box-shadow: 0px 4px 10px rgba(138, 138, 138, 0.9);
+}
+
+input::-webkit-input-placeholder {
+    font-size: small;
+    text-justify: center;
+    vertical-align: middle;
+    // text-align: center;
 }
 
 .session_submit {
@@ -76,4 +114,22 @@
 
 .session_submit:hover {
     background-color: $darkest-purple;
+}
+
+.session_footer {
+    margin-top: 9px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session_blurb {
+    font-size: small;
+}
+
+.session_link {
+    margin-top: 3px;
+    font-size: 14px;
+    color: $off-white;
 }

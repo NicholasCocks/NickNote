@@ -7,9 +7,9 @@ import { loginAction, clearErrors, loginDemoUser } from '../../actions/session';
 const mapStateToProps = (state) => {
     return {
         errors: Object.values(state.errors),
-        formType: 'login',
-        blurb: "Don't have an account",
-        sessionLink: <Link to="/session">Create Account</Link>,
+        formType: 'Login',
+        blurb: "Don't have an account?",
+        sessionLink: <Link to="/session">Create account</Link>,
     }
 };
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -44,6 +46,7 @@ class SessionForm extends React.Component {
                     value={this.state.email}
                     onChange={this.handleField('email')}
                     placeholder="Email"
+                    id="session_dynamic_inputs"
                     />
                 </label>
                 <label>
@@ -52,7 +55,9 @@ class SessionForm extends React.Component {
                     value={this.state.password}
                     onChange={this.handleField('password')}
                     placeholder="Password"
+                    id="session_dynamic_inputs"
                     />
+                    <FontAwesomeIcon icon={faCoffee} />
                 </label> 
                 <label>
                     <input 
@@ -69,8 +74,10 @@ class SessionForm extends React.Component {
                     onClick={() => {this.props.demoUser()}}
                     > Demo User </button>
                 </label>
-                <p>{this.props.blurb}</p>
-                <p>{this.props.sessionLink}</p>
+                <div className="session_footer">
+                    <p className="session_blurb">{this.props.blurb}</p>
+                    <p className="session_link">{this.props.sessionLink}</p>
+                </div>
             </form>
         )
     }

@@ -8,15 +8,18 @@ class SessionPage extends React.Component {
 
     render() {
         return (
-        <div className="session_page">
-            <div className="session_page_header">
-                <h1>Nicknote</h1>
-                <p>Remember everything important.</p>
+        <div className="session_background_picture">
+            <img src="assets/leaves.jpg" class="session_background_picture"></img>
+            <div className="session_page">
+                <div className="session_page_header">
+                    <h1>Nicknote</h1>
+                    <p>Remember everything important.</p>
+                </div>
+                <Switch>
+                    <AuthRoute exact path="/session/login" component={LoginFormContainer}/>
+                    <AuthRoute component={SignupContainer}/>
+                </Switch>
             </div>
-             <Switch>
-                <AuthRoute exact path="/session/login" component={LoginFormContainer}/>
-                <AuthRoute component={SignupContainer}/>
-            </Switch>
         </div>
         )
     }
