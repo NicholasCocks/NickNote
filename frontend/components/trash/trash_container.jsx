@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import NotebookContainer from '../notebooks/notebook_container';
 import {withRouter} from 'react-router-dom';
 
@@ -6,12 +7,16 @@ import {withRouter} from 'react-router-dom';
 class TrashContainer extends React.Component {
     render() {
         return(
-            <div>
-            <p>TrashContainer Component</p>
-            <NotebookContainer />
-            </div>
+            <NotebookContainer 
+                notebookTitle={this.props.notebookTitle} />
         )
     }
 }
 
-export default withRouter(TrashContainer);
+const mapStateToProps = (state) => { 
+    return {
+        notebookTitle: "Trash",
+    }
+}
+
+export default connect(mapStateToProps)(TrashContainer);

@@ -1,0 +1,10 @@
+.notebook_container {
+    display: flex;
+    background-color: beige;
+    flex-grow: 1;
+}
+
+.notebook_noteslist_container {
+    width: 200px;
+    border-right: 1px solid black;
+}
