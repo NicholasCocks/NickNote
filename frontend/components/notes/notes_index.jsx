@@ -1,4 +1,5 @@
 import React from 'react';
+import NotesNavContainer from './notes_nav_container';
 
 class NotesIndex extends React.Component {
     constructor(props) {
@@ -11,10 +12,12 @@ class NotesIndex extends React.Component {
     }
 
     render() {
-        return (<div>
-            <button onClick={this.logout}>logout</button>
-            <p>NotesIndex</p>
-            </div>)
+        return (
+            <div className="notes_full_page">
+                <NotesNavContainer />
+                <p>NotesIndex</p>
+            </div>
+        )
     }
 }
 
