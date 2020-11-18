@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -24,7 +23,7 @@ class SessionForm extends React.Component {
     handleSumbit(e) {
         e.preventDefault()
         delete this.state["passwordShown"]
-        this.props.processForm(this.state).then(() => this.props.history.push('/notes'))
+        this.props.processForm(this.state).then(() => this.props.history.push('/notes/index'))
     }
 
     togglePassword() {

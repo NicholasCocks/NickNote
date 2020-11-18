@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NoteIndex from './notes_index';
+import NotesApp from './notes_app';
 import { logoutAction } from '../../actions/session';
 
 const mapDispatchToProps = (dispatch) => {
@@ -8,4 +8,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(NoteIndex);
+export default connect(null, mapDispatchToProps)(NotesApp);
