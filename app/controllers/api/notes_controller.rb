@@ -29,7 +29,7 @@ class Api::NotesController < ApplicationController
     def destroy
         @note = current_user.notes.find(params[:id])
         if @note && @note.delete
-            render json: ["moved to trash"]
+            render json: ["note has been deleted"]
         end
     end
 

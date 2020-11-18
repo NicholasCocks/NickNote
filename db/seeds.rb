@@ -8,6 +8,8 @@
  
 demoUser = User.create({ email: "demo@user.com", password: "$gk991uIOwf9"})
 
+note1 = Note.create({title: 'title1', body: 'body1', notebook_id: '69', author_id: '2'})
+
 # https://github.com/appacademy/bluebird/blob/master/db/seeds.rb
  
 # User.destroy_all
