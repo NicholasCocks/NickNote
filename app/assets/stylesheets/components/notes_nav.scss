@@ -39,6 +39,18 @@
     }
 }
 
+.notes_nav_link:hover {
+    background-color: $darkest-gray;
+}
+
+.notes_nav_link:active {
+    background-color: $darkest-gray;
+}
+
 .active {
+    background-color: $dark-gray;
+}
+
+.active:hover {
     background-color: $dark-gray;
 }
