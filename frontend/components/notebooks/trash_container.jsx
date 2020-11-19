@@ -17,7 +17,7 @@ class TrashContainer extends React.Component {
 
 const mapStateToProps = (state) => { 
     return {
-        notes: [{title: "Need trash reducer"}],
+        notes: [{title: "Need trash reducer", updated_at: ""}],
         notebookTitle: "Trash",
     }
 }

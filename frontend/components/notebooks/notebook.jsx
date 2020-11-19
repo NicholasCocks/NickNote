@@ -16,12 +16,15 @@ class Notebook extends React.Component {
         return(
             <div className="notebook_container"> 
                 <div className="notebook_noteslist_container">
-                    <h3>{this.props.notebookTitle}</h3>
+                    <header className="notebook_header">
+                        <h3 className="notebook_header_heading">{this.props.notebookTitle}</h3>
+                        <aside>
+                            <p>{this.props.notes.length} notes</p>
+                        </aside>
+                    </header>
                     {notes}
                 </div>
-                <div>
-                    <NotepadContainer />
-                </div>
+                <NotepadContainer />
             </div>
         )
     }

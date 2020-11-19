@@ -1,8 +1,28 @@
-.notepad_page_container {
-    display: block;
+.notepad_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .notepad_input_container {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
+    padding-left: 30px;
+    textarea {
+        font-size: 12px;
+    }
+}
+
+.notepad_input_title {
+    font-size: 23px;
+    margin-bottom: 20px;
+    color: $gray;
+    font-weight: bold;
+}
+
+.notepad_input_title::placeholder {
+    font-size: 23px;
+    font-weight: bold;
+    color: $gray;
 }

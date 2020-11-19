@@ -1,0 +1,38 @@
+.notebook_item_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 90px;
+    border-bottom: 1px solid $light-gray;
+    p {
+        margin-bottom: 3px;
+    }
+}
+
+.notebook_item_container:hover {
+    background-color: white;
+}
+
+.notebook_item_title {
+    font-size: 12px;
+    font-weight: 10000;
+}
+
+.notebook_item_body {
+    color: $gray;
+    font-size: 12px;
+}
+
+.notebook_item_updated_at {
+    color: $gray;
+    font-size: 10px;
+}
+
+.notebook_item_padder {
+    height: 11px;
+}
