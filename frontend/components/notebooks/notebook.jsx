@@ -11,10 +11,10 @@ class Notebook extends React.Component {
         //componentDidUpdate, push route to first note to history
     }
     render() {
-        
+        debugger
         const notes = this.props.notes.map((note, index) => {
             return  <NotebookItem key={index} note={note}/>
-        }).sort()
+        })
 
         return(
             <div className="notebook_container"> 
