@@ -1,3 +1,3 @@
 json.set! note.id do
-    json.extract! note, :id, :title, :body, :notebood_id
+    json.extract! note, :id, :title, :body, :notebook_id
 end

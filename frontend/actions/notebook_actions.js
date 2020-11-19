@@ -1,3 +1,5 @@
+import * as NoteBookApiUtil from '../util/notebooks_api';
+
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 
 const receiveAllNotes = notes => {
@@ -7,6 +9,6 @@ const receiveAllNotes = notes => {
     }
 }
 
-export const fetchNotes = () => dispatch => {
-    return NoteApiUtil.fetchNotes().then(notes => dispatch(receiveAllNotes(notes)));
+export const fetchAllNotes = () => dispatch => {
+    return NoteBookApiUtil.fetchAllNotes().then(notes => dispatch(receiveAllNotes(notes)));
 }

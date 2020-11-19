@@ -1,9 +1,9 @@
 import React from 'react';
 import NotesNavContainer from './notes_nav_container';
-import NotebooksIndexContainer from '../notebooks/notebooks_index';
+import NotebooksIndexContainer from '../notebooks/notebooks index/notebooks_index';
 import TagsIndexContainer from '../tags/tags_index';
-import NotesIndexContainer from './notes_index_container';
-import TrashContainer from '../trash/trash_container';
+import NotesIndexContainer from '../notebooks/notes_index_container';
+import TrashContainer from '../notebooks/trash_container';
 import { ProtectedRoute } from '../../util/route_util';
 import { Switch } from 'react-router-dom';
 
