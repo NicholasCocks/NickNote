@@ -19,7 +19,7 @@ class NotesIndex extends React.Component {
 
 const mapStateToProps = (state) => { 
     return {
-        notes: state.entities.notes,
+        notes: Array.from(state.entities.notes),
         notebookTitle: "All Notes",
     }
 }

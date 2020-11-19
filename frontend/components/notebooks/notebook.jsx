@@ -11,7 +11,7 @@ class Notebook extends React.Component {
         //componentDidUpdate, push route to first note to history
     }
     render() {
-        debugger
+       
         const notes = this.props.notes.map((note, index) => {
             return  <NotebookItem key={index} note={note}/>
         })
@@ -25,8 +25,7 @@ class Notebook extends React.Component {
                             <p>{this.props.notes.length} notes</p>
                         </aside>
                     </header>
-                    {notes}
-                    {console.log(notes)}
+                   {notes}
                 </div>
                 {/* <NotepadContainer /> */}
                <Route path="/notes/index/:noteId" component={NotepadContainer} />
