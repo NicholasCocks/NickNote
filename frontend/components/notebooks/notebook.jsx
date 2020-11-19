@@ -1,5 +1,6 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
+import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
 import NotebookItem from './notebook_item';
 
@@ -24,7 +25,8 @@ class Notebook extends React.Component {
                     </header>
                     {notes}
                 </div>
-                <NotepadContainer />
+                {/* <NotepadContainer /> */}
+               <Route path="notes/index/:noteId" component={NotepadContainer} />
             </div>
         )
     }
