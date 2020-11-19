@@ -1,3 +1,3 @@
-json.array! @notes do |note|
+@notes.each do |note|
     json.partial! 'api/notes/note', note: note
 end

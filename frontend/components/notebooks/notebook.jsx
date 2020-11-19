@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
 import NotebookItem from './notebook_item';
@@ -25,10 +25,13 @@ class Notebook extends React.Component {
                             <p>{this.props.notes.length} notes</p>
                         </aside>
                     </header>
-                   {notes}
+                    <div className="notebook_notebookitem_container">
+                        {notes}
+                    </div>
+                   
                 </div>
-                {/* <NotepadContainer /> */}
-               <Route path="/notes/index/:noteId" component={NotepadContainer} />
+                
+               <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
             </div>
         )
     }
