@@ -7,7 +7,7 @@ const NotebooksReducer = (state = {}, action) => {
 
     switch (action.type) {
         case (RECEIVE_ALL_NOTES):
-            return Object.assign({}, state, action.notes)
+            return action.notes;
         default:
             return state;
     }

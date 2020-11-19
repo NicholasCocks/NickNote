@@ -18,9 +18,8 @@ class NotesIndex extends React.Component {
 }
 
 const mapStateToProps = (state) => { 
-    console.log(state.entities.notes);
+    debugger
     return {
-        
         notes: Object.values(state.entities.notes),
         notebookTitle: "All Notes",
     }

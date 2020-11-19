@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    after_initialize :ensure_session_token
+    after_initialize :ensure_session_token #after_create ensure_first_notebook
 
     has_many :notes,
         foreign_key: :author_id,
