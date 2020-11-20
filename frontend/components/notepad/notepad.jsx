@@ -35,12 +35,13 @@ class Notepad extends React.Component {
                         type="text" 
                         placeholder="Title"
                         value={this.state.title}
-                        onChange={(e) => this.updateField('title')} 
+                        onChange={this.updateField('title')} 
                         className="notepad_input_title" />
                     <textarea 
                         value={this.state.body}
                         onChange={this.updateField('body')}
-                        placeholder="Start writing..." />
+                        placeholder="Start writing..." 
+                        className="notepad_textarea"/>
                 </div>
             </div>
         )
