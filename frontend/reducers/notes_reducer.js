@@ -8,7 +8,7 @@ const NotebooksReducer = (state = {}, action) => {
 
     switch (action.type) {
         case (RECEIVE_ALL_NOTES):
-            return action.notes;
+            return Object.assign({}, state, action.notes);
         case (RECEIVE_NOTE):
             debugger
             return Object.assign({}, state, {

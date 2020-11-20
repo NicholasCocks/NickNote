@@ -1,3 +1,1 @@
-json.note do 
-    json.extract! @note, :id, :title, :body, :notebook_id
-end
+json.extract! @note, :id, :title, :body, :notebook_id, :trashed, :updated_at

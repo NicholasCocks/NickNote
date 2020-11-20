@@ -1,4 +1,5 @@
 import React from 'react';
+import { isEqual } from 'lodash';
 import { withRouter } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
@@ -8,14 +9,17 @@ import NotebookItem from './notebook_item';
 class Notebook extends React.Component {
     componentDidMount() {
         this.props.fetchNotes();
-        //componentDidUpdate, push route to first note to history
     }
-    componentDidUpdate() {
-        this.props.fetchNotes();
+
+    componentDidUpdate(prevprops, prevstate) {
+        
+        let lastNoteId = parseInt(prevprops.location.pathname.slice(13));
+        //we want the note we were just at to be able to check if is different
     }
+    
     render() {
        
-        const notes = this.props.notes.map((note, index) => {
+        const notes = this.props.noteslist.map((note, index) => {
             return  <NotebookItem key={index} note={note}/>
         })
 
@@ -25,7 +29,7 @@ class Notebook extends React.Component {
                     <header className="notebook_header">
                         <h3 className="notebook_header_heading">{this.props.notebookTitle}</h3>
                         <aside>
-                            <p>{this.props.notes.length} notes</p>
+                            <p>{this.props.noteslist.length} notes</p>
                         </aside>
                     </header>
                     <div className="notebook_notebookitem_container">

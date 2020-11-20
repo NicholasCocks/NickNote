@@ -45,6 +45,5 @@ export const createNote = (note) => dispatch => {
 }
 
 export const updateNote = (note) => dispatch => {
-    debugger
     return NoteApiUtil.updateNote(note).then(note => dispatch(receiveNote(note)));
 }

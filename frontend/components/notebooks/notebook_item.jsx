@@ -8,7 +8,6 @@ class NotebookItem extends React.Component {
         // const lastUpdated = note.updated_at.slice(5, 10)
         const date = new Date(note.updated_at).toDateString();
         // new Date(lastUpdated)
-        
         return (
             <NavLink to={`/notes/index/${note.id}`} className="notebook_item_container" activeClassName="notebook_item_container_active"> 
                 <main>

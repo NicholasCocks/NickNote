@@ -11,6 +11,9 @@ demoUser = User.create({ email: "demo@user.com", password: "$gk991uIOwf9"})
 note1 = Note.create({title: 'demotitle1', body: 'demobody1', notebook_id: '69', author_id: '1'})
 note2 = Note.create({title: 'demotitle2', body: 'demobody2', notebook_id: '69', author_id: '1'})
 note3 = Note.create({title: 'demotitle3', body: 'demobody3', notebook_id: '69', author_id: '1'})
+note4 = Note.create({title: 'demotitle4', body: 'demobody4', notebook_id: '69', author_id: '1', trashed: true})
+note5 = Note.create({title: 'demotitle5', body: 'demobody5', notebook_id: '69', author_id: '1', trashed: true})
+note6 = Note.create({title: 'demotitle6', body: 'demobody6', notebook_id: '69', author_id: '1', trashed: true})
 
 # https://github.com/appacademy/bluebird/blob/master/db/seeds.rb
  
