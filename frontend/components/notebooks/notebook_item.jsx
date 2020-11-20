@@ -10,7 +10,7 @@ class NotebookItem extends React.Component {
         // new Date(lastUpdated)
         
         return (
-            <NavLink to={`/notes/index/${note.id}`}className="notebook_item_container" activeClassName="notebook_item_container_active"> 
+            <NavLink to={`/notes/index/${note.id}`} className="notebook_item_container" activeClassName="notebook_item_container_active"> 
                 <main>
                     <p className="notebook_item_title">{note.title}</p>
                     <p className="notebook_item_body">{note.body}</p>

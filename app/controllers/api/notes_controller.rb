@@ -21,8 +21,8 @@ class Api::NotesController < ApplicationController
 
     def update
         @note = current_user.notes.find(params[:id])
-        if @post.update(note_params) 
-            render json: ["All changes saved"]
+        if @note.update(notes_params) 
+            render 'api/notes/show'
         end
     end
 
@@ -33,7 +33,8 @@ class Api::NotesController < ApplicationController
         end
     end
 
-    # private
-    # def notes_params
-    # end
+    private
+    def notes_params
+        params.require(:note).permit(:id, :title, :body, :notebook_id)
+    end
 end
