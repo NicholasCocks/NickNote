@@ -10,6 +10,9 @@ class Notebook extends React.Component {
         this.props.fetchNotes();
         //componentDidUpdate, push route to first note to history
     }
+    componentDidUpdate() {
+        this.props.fetchNotes();
+    }
     render() {
        
         const notes = this.props.notes.map((note, index) => {
