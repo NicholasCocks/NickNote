@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore  from './store/store';
 import Root from './components/root';
 import { fetchAllNotes } from './util/notebooks_api';
-
+import { fetchNote } from './util/notes_api';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -26,4 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //WINDOW TEST (DELETE BEFORE DEPLOY)
     window.fetchAllNotes = fetchAllNotes;
+    window.fetchNote = fetchNote;
 })

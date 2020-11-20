@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     font-family: $baseArial;
-    font-size: 11px;
+    font-size: 14px;
     color: white;
     background-color: rgb(26, 26, 26);
-    width: 193px;
+    width: 235px;
     height: 100vh;
     padding-right: 3px;
 }
@@ -17,13 +17,14 @@
 }
 
 .notes_new_note_button {
-    width: 150px;
+    width: 190px;
     margin-top: 20px;
-    margin-left: 13px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 14px;
-    padding: 7px;
+    padding: 8px;
     background-color: $amber;
-    border-radius: 15px;
+    border-radius: 30px;
     svg {
         margin-right: 7px;
     }
@@ -32,10 +33,10 @@
 .notes_nav_link {
     margin-top: 3px;
     padding: 6px;
-    padding-left: 21px;
+    padding-left: 23px;
     color: $light-gray;
     svg {
-        margin-right: 7px;
+        margin-right: 14px;
     }
 }
 

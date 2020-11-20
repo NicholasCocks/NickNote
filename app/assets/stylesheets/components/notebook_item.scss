@@ -1,17 +1,22 @@
 .notebook_item_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: inline-block;
     box-sizing: border-box;
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 12px;
     padding-bottom: 12px;
-    height: 90px;
+    width: 370px;
+    height: 120px;
     border-bottom: 1px solid $light-gray;
-    p {
-        margin-bottom: 3px;
+    main {
+        display: flex;
+        flex-direction: column;
     }
+    p {}
+}
+
+.notebook_item_container_active {
+    box-shadow: 0 0 0 2px $amber inset;
 }
 
 .notebook_item_container:hover {
@@ -19,18 +24,19 @@
 }
 
 .notebook_item_title {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 10000;
 }
 
 .notebook_item_body {
     color: $gray;
-    font-size: 12px;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 .notebook_item_updated_at {
     color: $gray;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .notebook_item_padder {

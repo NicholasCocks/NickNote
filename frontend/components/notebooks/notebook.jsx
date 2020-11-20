@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
 import NotebookItem from './notebook_item';
@@ -10,11 +10,14 @@ class Notebook extends React.Component {
         this.props.fetchNotes();
         //componentDidUpdate, push route to first note to history
     }
+    componentDidUpdate() {
+        this.props.fetchNotes();
+    }
     render() {
-        
+       
         const notes = this.props.notes.map((note, index) => {
             return  <NotebookItem key={index} note={note}/>
-        }).sort()
+        })
 
         return(
             <div className="notebook_container"> 
@@ -25,11 +28,13 @@ class Notebook extends React.Component {
                             <p>{this.props.notes.length} notes</p>
                         </aside>
                     </header>
-                    {notes}
-                    {console.log(notes)}
+                    <div className="notebook_notebookitem_container">
+                        {notes}
+                    </div>
+                   
                 </div>
-                {/* <NotepadContainer /> */}
-               <Route path="/notes/index/:noteId" component={NotepadContainer} />
+                
+               <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
             </div>
         )
     }
