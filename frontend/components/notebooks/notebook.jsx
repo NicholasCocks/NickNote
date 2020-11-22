@@ -1,8 +1,9 @@
 import React from 'react';
 import { isEqual } from 'lodash';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
+import NotepadSplash from '../notepad/notepad_splash';
 import NotebookItem from './notebook_item';
 
 
@@ -37,8 +38,10 @@ class Notebook extends React.Component {
                     </div>
                    
                 </div>
-                
-               <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
+                <Switch >
+                    <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
+                    <ProtectedRoute component={NotepadSplash} />
+               </Switch>
             </div>
         )
     }

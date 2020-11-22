@@ -1,0 +1,14 @@
+.notepad_splash_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: orange;
+}
+
+.notepad_splash_background {
+    height: 100%;
+    width: 50%;
+}

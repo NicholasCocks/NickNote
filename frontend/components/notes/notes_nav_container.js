@@ -4,7 +4,9 @@ import { logoutAction } from '../../actions/session';
 
 const mapStateToProps = (state) => {
     return {
-        noteId: state.entities.notes
+        noteslist: Object.values(state.entities.notes).sort((obj1, obj2) => {
+            return new Date(obj2.updated_at) - new Date(obj1.updated_at)
+        }).filter(note => { return note.trashed === false }),
     }
 }
 
@@ -14,4 +16,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(NotesNav)
+export default connect(mapStateToProps, mapDispatchToProps)(NotesNav)
