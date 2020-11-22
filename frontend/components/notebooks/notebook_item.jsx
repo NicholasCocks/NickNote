@@ -8,7 +8,6 @@ class NotebookItem extends React.Component {
         const date = new Date(note.updated_at).toDateString();
         const notebookURL = this.props.notebookURL.props.notebookURL;
         
-        debugger
         return (
             <NavLink to={`/notes/${notebookURL}/${note.id}`} className="notebook_item_container" activeClassName="notebook_item_container_active"> 
                 <main>
