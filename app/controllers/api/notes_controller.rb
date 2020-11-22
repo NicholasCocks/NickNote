@@ -12,7 +12,6 @@ class Api::NotesController < ApplicationController
     end
 
     def create
-        debugger
         @note = Note.new(notes_params)
         @note.author_id = current_user.id
         if @note.save
@@ -21,6 +20,7 @@ class Api::NotesController < ApplicationController
     end
 
     def update
+        # debugger
         @note = current_user.notes.find(params[:id])
         if @note.update(notes_params) 
             render 'api/notes/show'
@@ -36,6 +36,6 @@ class Api::NotesController < ApplicationController
 
     private
     def notes_params
-        params.require(:note).permit(:id, :title, :body, :notebook_id)
+        params.require(:note).permit(:id, :title, :body, :notebook_id, :trashed)
     end
 end

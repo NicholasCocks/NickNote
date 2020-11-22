@@ -5,11 +5,12 @@ import Notepad from './notepad';
 
 class NotepadContainer extends React.Component {
     render() {
-        const { note, updateNote } = this.props;
+        const { note, updateNote, path } = this.props;
         if (!note) return null;
         return( 
             <Notepad 
             note={note}
+            path={path}
             updateNote={updateNote}
             />
         )
@@ -17,7 +18,9 @@ class NotepadContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
+        path: ownProps.match.path,
         note: state.entities.notes[ownProps.match.params.noteId]
     }
 }
