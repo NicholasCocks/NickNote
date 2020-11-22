@@ -24,7 +24,7 @@ class NotesApp extends React.Component {
                 <Switch>
                     <ProtectedRoute path="/notes/notebooks/index" component={NotebooksIndexContainer}/>
                     <ProtectedRoute path="/notes/tags/index" component={TagsIndexContainer} />
-                    <ProtectedRoute path="/notes/notebooks/trash" component={TrashContainer} />
+                    <ProtectedRoute path="/notes/trash" component={TrashContainer} />
                     <ProtectedRoute component={NotesIndexContainer} /> 
                 </Switch>
             </div>

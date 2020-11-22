@@ -23,7 +23,7 @@ class NotesNav extends React.Component {
                 <NavLink to={`/notes/index`} className="notes_nav_link"><FontAwesomeIcon icon={faClipboard}/>All Notes</NavLink>
                 <NavLink to="/notes/notebooks/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
-                <NavLink to="/notes/notebooks/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
+                <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
             </div>
         )
     }

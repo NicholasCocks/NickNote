@@ -1,5 +1,4 @@
 import React from 'react';
-import { isEqual } from 'lodash';
 import { withRouter, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 import NotepadContainer from '../notepad/notepad_container';
@@ -12,34 +11,33 @@ class Notebook extends React.Component {
         this.props.fetchNotes();
     }
 
-    componentDidUpdate(prevprops, prevstate) {
+    createNotesList() {
+        const notebookURL = this.props.notebookURL;
         
-        let lastNoteId = parseInt(prevprops.location.pathname.slice(13));
-        //we want the note we were just at to be able to check if is different
+        return this.props.notesList.map((note, index) => {
+            return  <NotebookItem key={index} note={note} notebookURL={this}/>
+        }, notebookURL);
     }
+
     
     render() {
-       
-        const notes = this.props.noteslist.map((note, index) => {
-            return  <NotebookItem key={index} note={note}/>
-        })
-
         return(
             <div className="notebook_container"> 
                 <div className="notebook_noteslist_container">
                     <header className="notebook_header">
                         <h3 className="notebook_header_heading">{this.props.notebookTitle}</h3>
                         <aside>
-                            <p>{this.props.noteslist.length} notes</p>
+                            <p>{this.props.notesList.length} notes</p>
                         </aside>
                     </header>
                     <div className="notebook_notebookitem_container">
-                        {notes}
+                        {this.createNotesList()}
                     </div>
                    
                 </div>
-                <Switch >
+                <Switch>
                     <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
+                    <ProtectedRoute path="/notes/trash/:noteId" component={NotepadContainer} />
                     <ProtectedRoute component={NotepadSplash} />
                </Switch>
             </div>
