@@ -11,10 +11,60 @@
     padding-right: 3px;
 }
 
-.notes_logout_button {
+.notes_nav_dropdown {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+}
+
+.notes_nav_icon {
+    // background-color: $darkest-gray;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 13px;
+    overflow: hidden;
+}
+
+.notes_nav_email {
+    color: $light-gray;
+    margin-right: 10px;
+}
+
+.notes_nav_email:hover {
     color: white;
+}
+
+.notes_nav_chevron {
+    margin-top: 4px;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.notes_logout_button {
+    animation: fadein 0.5s;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    min-width: 150px;
+    color: white;
+    border-radius: 10px;
     background-color: $darkest-purple;
-    padding: 2px;
+    padding: 10px;
 }
 
 .notes_new_note_button {
@@ -24,11 +74,15 @@
     margin-right: auto;
     margin-bottom: 14px;
     padding: 8px;
-    background-color: $amber;
+    background-color: #E06D34;
     border-radius: 30px;
     svg {
         margin-right: 7px;
     }
+}
+
+.notes_new_note_button:hover {
+    background-color: #A63E31;
 }
 
 .notes_nav_link {

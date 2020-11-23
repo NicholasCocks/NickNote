@@ -5,6 +5,7 @@ import { createNote } from '../../actions/note_actions';
 
 const mapStateToProps = (state) => {
     return {
+        email: Object.values(state.entities.users)[0].email,
         note: { title: '', body: '' },
     }
 }
