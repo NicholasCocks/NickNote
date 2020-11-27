@@ -2,6 +2,7 @@ import React from 'react';
 import { MoveFromTrashButton, MoveToTrashButton } from './notepad_trash_icons';
 import NotepadNotebookDropdown from './notepad_notebook_dropdown';
 
+
 class Notepad extends React.Component {
     constructor(props) {
         super(props) 
@@ -9,6 +10,11 @@ class Notepad extends React.Component {
         this.updateField = this.updateField.bind(this);
         this.moveNoteToTrash = this.moveNoteToTrash.bind(this);
         this.moveNoteFromTrash = this.moveNoteFromTrash.bind(this);
+    }
+
+    componentDidMount() {
+        debugger
+        this.props.findTagsWithNote(this.props.note)
     }
 
     moveNoteToTrash() {
@@ -64,6 +70,9 @@ class Notepad extends React.Component {
                         value={this.state.body}
                         onChange={this.updateField('body')}
                         placeholder="Start writing..." />
+                </div>
+                <div>
+                    <p>Tags go here</p>
                 </div>
             </div>
         )

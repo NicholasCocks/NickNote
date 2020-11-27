@@ -19,12 +19,6 @@ const receiveNote = note => {
     }
 }
 
-const receiveAutosave = message => {
-    return {
-        type
-    }
-}
-
 const removeNote = note => {
     return {
         type: REMOVE_NOTE,

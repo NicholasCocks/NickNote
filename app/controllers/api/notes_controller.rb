@@ -35,6 +35,12 @@ class Api::NotesController < ApplicationController
         end
     end
 
+    def tags_with_note
+        @note = current_user.notes.find(params[:note_id])
+        @tags = @note.tags
+        render 'api/tags/tagged'
+    end
+
     private
     def notes_params
         params.require(:note).permit(:id, :title, :body, :notebook_id, :trashed)

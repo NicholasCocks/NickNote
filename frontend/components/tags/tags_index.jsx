@@ -17,7 +17,6 @@ class TagsIndex extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div className="notebook_container"> 
                 <div className="notebook_noteslist_container">

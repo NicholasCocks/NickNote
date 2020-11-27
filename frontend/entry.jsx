@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore  from './store/store';
 import Root from './components/root';
-import { fetchNotebook, fetchAllNotebooks } from './util/notebooks_api';
+import { dispatch } from 'redux'
+import { findNotesWithTag, findTagsWithNote } from './util/taggable_api';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -24,6 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store} />, root);
 
     //WINDOW TEST (DELETE BEFORE DEPLOY)
-    window.fetchAllNotebooks = fetchAllNotebooks;
-    window.fetchNotebook = fetchNotebook;
+    window.findNotesWithTag = findNotesWithTag;
+    window.findTagsWithNote = findTagsWithNote;
 })
