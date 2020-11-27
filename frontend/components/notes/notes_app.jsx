@@ -1,7 +1,7 @@
 import React from 'react';
 import NotesNavContainer from './notes_nav_container';
 import NotebooksIndexContainer from '../notebooks/notebooks index/notebooks_index_container';
-import TagsIndexContainer from '../tags/tags_index';
+import TagsIndexContainer from '../tags/tags_index_container';
 import NotesIndexContainer from '../notebooks/notes_index_container';
 import NNotebookContainer from '../notebooks/n_notebook_container';
 import TrashContainer from '../notebooks/trash_container';
