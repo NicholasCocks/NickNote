@@ -12,11 +12,6 @@ class Notepad extends React.Component {
         this.moveNoteFromTrash = this.moveNoteFromTrash.bind(this);
     }
 
-    componentDidMount() {
-        debugger
-        this.props.findTagsWithNote(this.props.note)
-    }
-
     moveNoteToTrash() {
         this.state.trashed = true;
         this.props.updateNote(this.state);
@@ -29,6 +24,7 @@ class Notepad extends React.Component {
 
     componentDidUpdate(prevprops, prevstate) {
         if (this.props.note.id !== prevprops.note.id) {
+            this.props.findTagsWithNote(this.props.note)
             this.props.updateNote(prevstate)
             this.setState(this.props.note)
         }
@@ -43,11 +39,21 @@ class Notepad extends React.Component {
     render() {
         const urlTrashCheck = this.props.path.slice(7, 12);
         let trashButton;
+        let tags;
         if (urlTrashCheck === "trash") { 
             trashButton = <button onClick={this.moveNoteFromTrash}><MoveFromTrashButton /> Restore</button>
         } else {
             trashButton = <button onClick={this.moveNoteToTrash}><MoveToTrashButton /> Trash</button>
         }
+        
+        if (Object.keys(this.props.taggables).length !== 0) { 
+            debugger
+            tags = Object.values(this.props.taggables).map((tag, index) => {
+                if (tag[this.props.note.id]) {
+                    return <p key={index}>{tag[this.props.note.id].title}</p>
+                }
+        })}
+
         
 
         return(
@@ -72,7 +78,7 @@ class Notepad extends React.Component {
                         placeholder="Start writing..." />
                 </div>
                 <div>
-                    <p>Tags go here</p>
+                    <div>{tags}</div>
                 </div>
             </div>
         )
