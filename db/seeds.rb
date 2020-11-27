@@ -25,6 +25,13 @@ ActiveRecord::Base.transaction do
     note5 = Note.create({title: Faker::Space.galaxy, body: Faker::Quote.famous_last_words, notebook_id: notebook2.id, author_id: demoUser.id, trashed: true})
     note6 = Note.create({title: Faker::Space.agency, body: Faker::Quote.famous_last_words, notebook_id: notebook3.id, author_id: demoUser.id, trashed: true})
 
+    tag1 = Tag.create({title: 'first tag', author_id: demoUser.id})
+    tag2 = Tag.create({title: 'second tag', author_id: demoUser.id})
+    tag3 = Tag.create({title: 'third tag', author_id: demoUser.id})
+
+    taggable1 = Taggable.create({note_id: note1.id, tag_id: tag1.id})
+    taggable2 = Taggable.create({note_id: note2.id, tag_id: tag2.id})
+    taggable3 = Taggable.create({note_id: note3.id, tag_id: tag3.id})
 end
 # https://github.com/appacademy/bluebird/blob/master/db/seeds.rb
  

@@ -21,4 +21,12 @@ class Note < ApplicationRecord
     belongs_to :notebook,
         foreign_key: :notebook_id,
         class_name: :Notebook
+
+    has_many :taggables,
+        foreign_key: :note_id,
+        class_name: :Taggable 
+
+    has_many :tags,
+        through: :taggables,
+        source: :tag 
 end

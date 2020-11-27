@@ -1,4 +1,5 @@
 # == Schema Information
+#
 # Table name: users
 #
 #  id              :bigint           not null, primary key
@@ -26,6 +27,12 @@ class User < ApplicationRecord
         class_name: :Notebook,
         dependent: :destroy
 
+    has_many :tags,
+        foreign_key: :author_id,
+        class_name: :Tag,
+        dependent: :destroy
+
+    
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         return nil unless user && user.is_password?(password)

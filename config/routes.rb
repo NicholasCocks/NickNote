@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :notes, only: [:index, :show, :create, :update, :destroy]
     resources :notebooks, only: [:index, :create, :destroy, :update]
+    resources :tags, only: [:index, :show, :create, :destroy, :update]
   end
   root to: 'static_pages#root'
 end
