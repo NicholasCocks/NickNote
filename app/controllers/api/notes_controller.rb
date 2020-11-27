@@ -7,7 +7,6 @@ class Api::NotesController < ApplicationController
 
     def show
         @note = current_user.notes.find(params[:id])
-
         render 'api/notes/show'
     end
 
@@ -20,10 +19,12 @@ class Api::NotesController < ApplicationController
     end
 
     def update
-        # debugger
+        
         @note = current_user.notes.find(params[:id])
-        if @note.update(notes_params) 
+        if @note.update!(notes_params) 
             render 'api/notes/show'
+        else 
+            render json: [@note.errors.full_messages]
         end
     end
 

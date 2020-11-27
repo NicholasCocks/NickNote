@@ -21,11 +21,13 @@ class NotesNav extends React.Component {
     }
 
     createNote() {
+        debugger
         this.props.createNote(this.props.note);
     }
 
     render() {
         let logoutButton;
+        
         if (this.state.open) { 
             logoutButton = <button className="notes_logout_button"onClick={this.logout}>Logout {this.props.email}</button>
         } else {
@@ -43,7 +45,7 @@ class NotesNav extends React.Component {
                 {logoutButton}
                 <button className="notes_new_note_button" onClick={this.createNote}><FontAwesomeIcon icon={faPlus}/>New Note</button>    
                 <NavLink to="/notes/index" className="notes_nav_link"><FontAwesomeIcon icon={faClipboard}/>All Notes</NavLink>
-                <NavLink to="/notes/notebooks/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
+                <NavLink to="/notes/notebook/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
                 <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
             </div>

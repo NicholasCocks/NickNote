@@ -10,6 +10,11 @@
 #                           PATCH  /api/notes/:id(.:format)                                                                 api/notes#update {:format=>:json}
 #                           PUT    /api/notes/:id(.:format)                                                                 api/notes#update {:format=>:json}
 #                           DELETE /api/notes/:id(.:format)                                                                 api/notes#destroy {:format=>:json}
+#             api_notebooks GET    /api/notebooks(.:format)                                                                 api/notebooks#index {:format=>:json}
+#                           POST   /api/notebooks(.:format)                                                                 api/notebooks#create {:format=>:json}
+#              api_notebook PATCH  /api/notebooks/:id(.:format)                                                             api/notebooks#update {:format=>:json}
+#                           PUT    /api/notebooks/:id(.:format)                                                             api/notebooks#update {:format=>:json}
+#                           DELETE /api/notebooks/:id(.:format)                                                             api/notebooks#destroy {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -23,6 +28,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :notes, only: [:index, :show, :create, :update, :destroy]
+    resources :notebooks, only: [:index, :create, :destroy, :update]
   end
   root to: 'static_pages#root'
 end

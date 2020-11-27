@@ -4,6 +4,8 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!(@user)
+            notebook = Notebook.create({title: 'First Notebook', author_id: @user.id, first_notebook: true})
+            note = Note.create({title: 'My First Note', body: 'Welcome To Nicknote!', author_id: @user.id, notebook_id: notebook.id})
             render 'api/users/show'
         else
             render json: [ @user.errors.full_messages ], status: 401

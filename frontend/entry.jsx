@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore  from './store/store';
 import Root from './components/root';
-import { fetchAllNotes } from './util/notebooks_api';
-import { fetchNote } from './util/notes_api';
+import { fetchNotebook, fetchAllNotebooks } from './util/notebooks_api';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -25,6 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(<Root store={store} />, root);
 
     //WINDOW TEST (DELETE BEFORE DEPLOY)
-    window.fetchAllNotes = fetchAllNotes;
-    window.fetchNote = fetchNote;
+    window.fetchAllNotebooks = fetchAllNotebooks;
+    window.fetchNotebook = fetchNotebook;
 })

@@ -1,5 +1,4 @@
 # == Schema Information
-#
 # Table name: users
 #
 #  id              :bigint           not null, primary key
@@ -20,6 +19,11 @@ class User < ApplicationRecord
     has_many :notes,
         foreign_key: :author_id,
         class_name: :Note,
+        dependent: :destroy
+
+    has_many :notebooks,
+        foreign_key: :author_id,
+        class_name: :Notebook,
         dependent: :destroy
 
     def self.find_by_credentials(email, password)

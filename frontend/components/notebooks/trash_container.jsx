@@ -1,18 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Notebook from './notebook';
+import { fetchAllNotebooks } from '../../actions/notebook_actions';
 import { fetchAllNotes } from '../../actions/note_actions';
 
 
 class TrashContainer extends React.Component {
     render() {
+        const { notes, notesList, fetchNotes, fetchNotebooks, notebookTitle, notebookURL } = this.props;
         return(
             <Notebook
-            notes={this.props.notes}
-            notesList={this.props.notesList}
-            fetchNotes={this.props.fetchNotes}
-            notebookTitle={this.props.notebookTitle} 
-            notebookURL={this.props.notebookURL} />
+            notes={notes}
+            notesList={notesList}
+            fetchNotebooks={fetchNotebooks}
+            fetchNotes={fetchNotes}
+            notebookTitle={notebookTitle} 
+            notebookURL={notebookURL} />
         )
     }
 }
@@ -29,8 +32,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+    debugger
     return {
         fetchNotes: () => dispatch(fetchAllNotes()),
+        fetchNotebooks: () => dispatch(fetchAllNotebooks()),
     }
 }
 

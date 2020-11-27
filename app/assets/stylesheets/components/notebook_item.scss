@@ -1,12 +1,14 @@
 .notebook_item_container {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-sizing: border-box;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 370px;
-    height: 120px;
+    min-height: 120px;
     border-bottom: 1px solid $light-gray;
     main {
         display: flex;
@@ -24,8 +26,9 @@
 }
 
 .notebook_item_title {
+    color: rgb(71, 71, 71);
     font-size: 14px;
-    font-weight: 10000;
+    font-weight: 600;
 }
 
 .notebook_item_body {

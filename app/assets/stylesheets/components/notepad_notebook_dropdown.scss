@@ -1,0 +1,17 @@
+.notepad_notebook_dropdown_container {
+    background-color: beige;
+    cursor: pointer;
+}
+
+.notepad_notebook_dropdown_title {
+    color: black;
+}
+
+.notepad_notebook_dropdown_menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 5px;
+    background-color: $darkest-purple;
+    color: white;
+}

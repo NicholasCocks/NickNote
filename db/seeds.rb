@@ -5,16 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
- 
-demoUser = User.create({ email: "demo@user.com", password: "$gk991uIOwf9"})
+require 'faker'
+Note.destroy_all
+Notebook.destroy_all
+User.destroy_all
 
-note1 = Note.create({title: 'demotitle1', body: 'demobody1', notebook_id: '69', author_id: '1'})
-note2 = Note.create({title: 'demotitle2', body: 'demobody2', notebook_id: '69', author_id: '1'})
-note3 = Note.create({title: 'demotitle3', body: 'demobody3', notebook_id: '69', author_id: '1'})
-note4 = Note.create({title: 'demotitle4', body: 'demobody4 note should be in trash', notebook_id: '69', author_id: '1', trashed: true})
-note5 = Note.create({title: 'demotitle5', body: 'demobody5 note should be in trash', notebook_id: '69', author_id: '1', trashed: true})
-note6 = Note.create({title: 'demotitle6', body: 'demobody6 note shoulde be in trash', notebook_id: '69', author_id: '1', trashed: true})
 
+ActiveRecord::Base.transaction do
+    demoUser = User.create({ email: "demo@user.com", password: "$gk991uIOwf9"})
+    
+    notebook1 = Notebook.create({title: 'First Notebook', author_id: demoUser.id, first_notebook: true})
+    notebook2 = Notebook.create({title: 'Second Notebook', author_id: demoUser.id})
+    notebook3 = Notebook.create({title: 'Third Notebook', author_id: demoUser.id})
+
+    note1 = Note.create({title: Faker::Space.planet, body: Faker::Quote.famous_last_words, notebook_id: notebook1.id, author_id: demoUser.id})
+    note2 = Note.create({title: Faker::Space.star, body: Faker::Quote.famous_last_words, notebook_id: notebook2.id, author_id: demoUser.id})
+    note3 = Note.create({title: Faker::Space.moon, body: Faker::Quote.famous_last_words, notebook_id: notebook3.id, author_id: demoUser.id})
+    note4 = Note.create({title: Faker::Space.nebula, body: Faker::Quote.famous_last_words, notebook_id: notebook1.id, author_id: demoUser.id, trashed: true})
+    note5 = Note.create({title: Faker::Space.galaxy, body: Faker::Quote.famous_last_words, notebook_id: notebook2.id, author_id: demoUser.id, trashed: true})
+    note6 = Note.create({title: Faker::Space.agency, body: Faker::Quote.famous_last_words, notebook_id: notebook3.id, author_id: demoUser.id, trashed: true})
+
+end
 # https://github.com/appacademy/bluebird/blob/master/db/seeds.rb
  
 # User.destroy_all

@@ -16,12 +16,17 @@
 }
 
 .notepad_trash_button {
+    color: $dark-gray;
     background-color: $lightest-gray;
     display: inline;
     padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 7px;
 }
 
 .notepad_trash_button:hover {
+    color: $darkest-gray;
     background-color: $light-gray;
 }
 
@@ -31,14 +36,14 @@
     padding-top: 20px;
     padding-left: 30px;
     textarea {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
 .notepad_input_title {
     font-size: 23px;
     margin-bottom: 20px;
-    color: $gray;
+    color: black;
     font-weight: bold;
 }
 

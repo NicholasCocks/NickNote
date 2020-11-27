@@ -9,6 +9,7 @@ import NotebookItem from './notebook_item';
 class Notebook extends React.Component {
     componentDidMount() {
         this.props.fetchNotes();
+        this.props.fetchNotebooks();
     }
 
     createNotesList() {
@@ -38,6 +39,7 @@ class Notebook extends React.Component {
                 <Switch>
                     <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/trash/:noteId" component={NotepadContainer} />
+                    <ProtectedRoute path="/notes/notebook/:notebookId/:noteId" component={NotepadContainer} />
                     <ProtectedRoute component={NotepadSplash} />
                </Switch>
             </div>

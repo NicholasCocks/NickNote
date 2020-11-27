@@ -1,0 +1,80 @@
+.notebooks_index_container {
+    padding: 27px;
+    box-sizing: border-box;
+    height: 100vh;
+    max-height: 100%;
+    width: 100%;
+    font-family: $baseArial;
+    overflow: scroll;
+}
+
+.notebooks_index_title {
+    font-size: 20px;
+}
+
+.notebooks_index_banner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 2px solid black;
+}
+
+.notebooks_index_new_notebook {
+    color: #E06D34;
+}
+
+.notebooks_index_new_notebook:hover {
+    color: $amber;
+}
+
+.notebooks_index_column {
+    display: flex;
+    justify-content: space-between;
+    background-color: $lightest-gray;
+    color: gray;
+    font-size: 10px;
+    padding: 12px;
+}
+
+.notebook_index_create_notebook_container {
+    animation: fadein 0.5s;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: $dark-purple;
+    padding: 20px;
+    width: 500px;
+    color: white;
+    border-radius: 10px;
+    left: 40vw;
+    right: 40vw;
+    h3 {
+        font-size: large;
+    }
+    p {
+        margin-top: 10px;
+        font-size: small;
+        font-weight: 100;
+    }
+    input {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+    input:focus {
+        border: 1pm solid blue;
+    }
+}
+
+.notebook_index_create_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notebook_index_create_button_container {
+    display: flex;
+    justify-content: flex-end;
+}
