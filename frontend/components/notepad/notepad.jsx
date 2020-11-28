@@ -66,7 +66,8 @@ class Notepad extends React.Component {
                         onChange={this.updateField('body')}
                         placeholder="Start writing..." />
                 </div>
-                <NotepadTagDropDown tags={this.props.tags} note={this.props.note} taggables={this.props.taggables}/>
+                <NotepadTagDropDown tags={this.props.tags} note={this.props.note} 
+                createTaggable={this.props.createTaggable} taggables={this.props.taggables}/>
                 {/* <div className="notepad_tag_bar">
                         <FontAwesomeIcon icon={faTag}/>
                         <div></div>

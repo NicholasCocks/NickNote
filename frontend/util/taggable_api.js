@@ -10,8 +10,8 @@ export const fetchAllTaggables = () => {
 export const createTaggable = (note, tag) => {
     return $.ajax({
         method: 'POST',
-        url: `api/notes/${note.id}/taggable`,
-        data: { tag }
+        url: `api/taggables`,
+        data: { note, tag }
     })
 }
 

@@ -9,6 +9,7 @@
 #
 class Taggable < ApplicationRecord
     validates :note_id, :tag_id, presence: true
+    validates_uniqueness_of :note_id, :scope => [:tag_id]
     
     belongs_to :note,
         foreign_key: :note_id,

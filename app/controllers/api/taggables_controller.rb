@@ -5,10 +5,13 @@ class Api::TaggablesController < ApplicationController
     end
 
     def create
-  
         @taggable = Taggable.new
-        # @taggable.note_id = params[:note_id]
-        # @taggable.tag_id = 
+        @taggable.note_id = params[:note][:id]
+        @taggable.tag_id = params[:tag][:id]
+        @taggable.author_id = current_user.id
+        if @taggable.save!
+            render 'api/taggables/show'
+        end
     end
 
     def destroy
