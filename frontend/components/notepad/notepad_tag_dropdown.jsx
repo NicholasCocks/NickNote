@@ -10,6 +10,7 @@ class NotepadTagDropDown extends React.Component {
             open: false,
             inputVal: ''
           };
+        this.tags = [];
         this.selectName = this.selectName.bind(this);
         this.setOpen = this.setOpen.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -54,14 +55,17 @@ class NotepadTagDropDown extends React.Component {
     render() {
         const tags = Object.values(this.props.taggables).map((taggable, index) => {
             if (taggable.note_id === this.props.note.id) {
+                this.tags.push(this.props.tags[taggable.tag_id]);
                 return <p key={index}>{this.props.tags[taggable.tag_id].title}</p>
             }
-        }) 
+        }, this) 
 
         const results = Object.values(this.matches()).map((result, i) => {
+          if (!this.tags.includes(result)) {
             return (
               <p key={i} onClick={() => this.selectName(result)}>{result.title}</p>
-            );
+            )
+          }
         }, this);
     
         return (
