@@ -6,7 +6,7 @@ export const fetchAllTaggables = () => {
 }
 
 
-// api_note_taggable_index POST   /api/notes/:note_id/taggable(.:format)   
+// POST   /api/taggables(.:format)    
 export const createTaggable = (note, tag) => {
     return $.ajax({
         method: 'POST',
@@ -15,10 +15,10 @@ export const createTaggable = (note, tag) => {
     })
 }
 
-// api_note_taggable DELETE /api/notes/:note_id/taggable/:id(.:format)   
-export const deleteTaggable = (note, taggable) => {
+// api_taggable DELETE / api / taggables /: id(.: format)
+export const deleteTaggable = (taggable) => {
     return $.ajax({
         method: 'DELETE',
-        url: `api/notes/${note.id}/taggable/${taggable}`
+        url: `api/taggables/${taggable.id}`
     })
 }

@@ -67,7 +67,7 @@ class Notepad extends React.Component {
                         placeholder="Start writing..." />
                 </div>
                 <NotepadTagDropDown tags={this.props.tags} note={this.props.note} 
-                createTaggable={this.props.createTaggable} taggables={this.props.taggables}/>
+                createTaggable={this.props.createTaggable} deleteTaggable={this.props.deleteTaggable} taggables={this.props.taggables}/>
                 {/* <div className="notepad_tag_bar">
                         <FontAwesomeIcon icon={faTag}/>
                         <div></div>

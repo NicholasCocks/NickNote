@@ -15,7 +15,10 @@ class Api::TaggablesController < ApplicationController
     end
 
     def destroy
-
+        @taggable = Taggable.find(params[:id])
+        if @taggable.destroy 
+            render 'api/taggables/show'
+        end
     end
 
     def taggable_params

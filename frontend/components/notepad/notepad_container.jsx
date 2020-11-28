@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateNote } from '../../actions/note_actions';
-import { createTaggable } from '../../actions/taggable_actions';
+import { createTaggable, deleteTaggable } from '../../actions/taggable_actions';
+
 
 import Notepad from './notepad';
 
 class NotepadContainer extends React.Component {
     render() {
         const { note, updateNote, path, notebooks, taggables, tags,
-        createTaggable } = this.props;
+        createTaggable, deleteTaggable } = this.props;
         if (!note) return null;
         return( 
             <Notepad 
@@ -19,6 +20,7 @@ class NotepadContainer extends React.Component {
             taggables={taggables}
             tags={tags}
             createTaggable={createTaggable}
+            deleteTaggable={deleteTaggable}
             />
         )
     }
@@ -37,7 +39,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         updateNote: note => dispatch(updateNote(note)),
-        createTaggable: (note, tag) => dispatch(createTaggable(note,tag))
+        createTaggable: (note, tag) => dispatch(createTaggable(note,tag)),
+        deleteTaggable: (taggable) => dispatch(deleteTaggable(taggable)),
     }
 }
 
