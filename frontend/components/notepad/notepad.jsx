@@ -2,9 +2,6 @@ import React from 'react';
 import { MoveFromTrashButton, MoveToTrashButton } from './notepad_trash_icons';
 import NotepadNotebookDropdown from './notepad_notebook_dropdown'; 
 import NotepadTagDropDown from './notepad_tag_dropdown';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTag, faTags } from '@fortawesome/free-solid-svg-icons';
-
 
 class Notepad extends React.Component {
     constructor(props) {
@@ -47,8 +44,6 @@ class Notepad extends React.Component {
         } else {
             trashButton = <button onClick={this.moveNoteToTrash}><MoveToTrashButton /> Trash</button>
         }
-        
-        
 
         return(
             <div className="notepad_container">
@@ -71,11 +66,12 @@ class Notepad extends React.Component {
                         onChange={this.updateField('body')}
                         placeholder="Start writing..." />
                 </div>
-                <div className="notepad_tag_bar">
+                <NotepadTagDropDown tags={this.props.tags} note={this.props.note} taggables={this.props.taggables}/>
+                {/* <div className="notepad_tag_bar">
                         <FontAwesomeIcon icon={faTag}/>
                         <div></div>
-                        {/* remove this tag, add new tag */}
-                </div>
+                        
+                </div> */}
                 
             </div>
         )

@@ -9,9 +9,10 @@ import { fetchAllTaggables } from '../../actions/taggable_actions';
 class NotesIndex extends React.Component {
     render() {
         const { notes, notesList, fetchNotes, fetchNotebooks, fetchAllTags, fetchAllTaggables,
-            notebookTitle, notebookURL } = this.props;
+            notebookTitle, notebookURL, taggables } = this.props;
         return (
             <Notebook
+            taggables={taggables}
             notes={notes}
             notesList={notesList}
             fetchNotes={fetchNotes}
@@ -26,6 +27,7 @@ class NotesIndex extends React.Component {
 
 const mapStateToProps = (state) => { 
     return {
+        taggables: state.entities.taggables,
         notes: state.entities.notes,
         notesList: Object.values(state.entities.notes).sort((obj1, obj2) => {
             return new Date(obj2.updated_at) - new Date(obj1.updated_at)

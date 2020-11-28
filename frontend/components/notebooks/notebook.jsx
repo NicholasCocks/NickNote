@@ -8,44 +8,25 @@ import NotebookItem from './notebook_item';
 
 class Notebook extends React.Component {
     componentDidMount() {
-        if (this.props.fetchAllTags){
-            this.props.fetchAllTags();
-            this.props.fetchAllTaggables();
-        }
-
+        this.props.fetchAllTags();
+        this.props.fetchAllTaggables();
         this.props.fetchNotes();
         this.props.fetchNotebooks();
-        
-    }
-
-    componentDidUpdate(prevprops) {
-        if (this.props.tag && (typeof(prevprops.tag) !== "undefined")) {
-            if (this.props.tag.id !== prevprops.tag.id) {
-                this.props.findNotesWithTag(this.props.tag)
-            }
-            
-        }
     }
 
     createNotesList() {
         const notebookURL = this.props.notebookURL;
-        if (notebookURL === 'tags') {
-            return this.props.notesList.map((note, index) => {
-                if (note[this.props.tag.id]) {
-                    return  <NotebookItem key={index} note={note[[this.props.tag.id]]} notebookURL={this}/>
-                }  
-            }, notebookURL);
-        } else {
-            return this.props.notesList.map((note, index) => {
-                return  <NotebookItem key={index} note={note} notebookURL={this}/>
-            }, notebookURL);
-        }
         
+        return this.props.notesList.map((note, index) => {
+            return  <NotebookItem key={index} note={note} notebookURL={this}/>
+        }, notebookURL);
+    }
+
+    createTagsList() {
+
     }
     
     render() {
-        
-        
 
         return(
             <div className="notebook_container"> 

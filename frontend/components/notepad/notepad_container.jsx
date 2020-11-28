@@ -6,7 +6,7 @@ import Notepad from './notepad';
 
 class NotepadContainer extends React.Component {
     render() {
-        const { note, updateNote, path, notebooks, taggables } = this.props;
+        const { note, updateNote, path, notebooks, taggables, tags } = this.props;
         if (!note) return null;
         return( 
             <Notepad 
@@ -15,6 +15,7 @@ class NotepadContainer extends React.Component {
             path={path}
             updateNote={updateNote}
             taggables={taggables}
+            tags={tags}
             />
         )
     }
@@ -25,6 +26,7 @@ const mapStateToProps = (state, ownProps) => {
         path: ownProps.match.path,
         note: state.entities.notes[ownProps.match.params.noteId],
         taggables: state.entities.taggables,
+        tags: state.entities.tags,
         notebooks: state.entities.notebooks,
     }
 }

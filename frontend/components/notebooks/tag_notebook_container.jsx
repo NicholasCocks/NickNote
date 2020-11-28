@@ -36,9 +36,17 @@ const mapStateToProps = (state, ownProps) => {
     if (state.entities.tags[parseInt(ownProps.match.url.slice(12))]) {
         notebookTitle = state.entities.tags[parseInt(ownProps.match.url.slice(12))].title
         tag = state.entities.tags[parseInt(ownProps.match.url.slice(12))];
+        notebookURL = `tags/${tag.id}`
     }
 
-    
+    if (Object.keys(state.entities.notes).length !== 0) {
+        notesList = Object.values(state.entities.taggables).map((taggable, index) => {
+            debugger
+            if (taggable.tag_id === tag.id) {
+                return state.entities.notes[taggable.note_id]
+            }
+        }).filter((note) => { return typeof(note) !== "undefined"})
+    }
 
     return {
         notes: state.entities.notes,
