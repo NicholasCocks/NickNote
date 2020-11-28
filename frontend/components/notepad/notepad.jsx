@@ -25,13 +25,8 @@ class Notepad extends React.Component {
         this.props.updateNote(this.state);
     }
 
-    componentDidMount() {
-        this.props.findTagsWithNote(this.props.note)
-    }
-
     componentDidUpdate(prevprops, prevstate) {
         if (this.props.note.id !== prevprops.note.id) {
-            this.props.findTagsWithNote(this.props.note)
             this.props.updateNote(prevstate)
             this.setState(this.props.note)
         }
@@ -46,20 +41,14 @@ class Notepad extends React.Component {
     render() {
         const urlTrashCheck = this.props.path.slice(7, 12);
         let trashButton;
-        let tags;
+
         if (urlTrashCheck === "trash") { 
             trashButton = <button onClick={this.moveNoteFromTrash}><MoveFromTrashButton /> Restore</button>
         } else {
             trashButton = <button onClick={this.moveNoteToTrash}><MoveToTrashButton /> Trash</button>
         }
         
-        if (Object.keys(this.props.taggables).length !== 0) { 
-            debugger
-            tags = Object.values(this.props.taggables).map((tag, index) => {
-                if (tag[this.props.note.id]) {
-                    return <p key={index}>{tag[this.props.note.id].title}</p>
-                }
-        })}
+        
 
         return(
             <div className="notepad_container">
@@ -84,7 +73,7 @@ class Notepad extends React.Component {
                 </div>
                 <div className="notepad_tag_bar">
                         <FontAwesomeIcon icon={faTag}/>
-                        <div>{tags}</div>
+                        <div></div>
                         {/* remove this tag, add new tag */}
                 </div>
                 

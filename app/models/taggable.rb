@@ -2,9 +2,10 @@
 #
 # Table name: taggables
 #
-#  id      :bigint           not null, primary key
-#  note_id :integer          not null
-#  tag_id  :integer          not null
+#  id        :bigint           not null, primary key
+#  note_id   :integer          not null
+#  tag_id    :integer          not null
+#  author_id :integer
 #
 class Taggable < ApplicationRecord
     validates :note_id, :tag_id, presence: true
@@ -16,4 +17,8 @@ class Taggable < ApplicationRecord
     belongs_to :tag,
         foreign_key: :tag_id,
         class_name: :Tag
+
+    belongs_to :user,
+        foreign_key: :author_id,
+        class_name: :User
 end

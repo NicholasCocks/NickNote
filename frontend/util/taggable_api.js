@@ -1,15 +1,24 @@
-// api_tag_notes_with_tag GET    /api/tags/:tag_id/notes_with_tag(.:format)
-export const findNotesWithTag = (tag) => {
+export const fetchAllTaggables = () => {
     return $.ajax({
         method: 'GET',
-        url: `api/tags/${tag.id}/notes_with_tag`
+        url: 'api/taggables'
     })
 }
 
-// api_note_tags_with_note GET    /api/notes/:note_id/tags_with_note(.:format) 
-export const findTagsWithNote = (note) => {
+
+// api_note_taggable_index POST   /api/notes/:note_id/taggable(.:format)   
+export const createTaggable = (note, tag) => {
     return $.ajax({
-        method: 'GET',
-        url: `api/notes/${note.id}/tags_with_note`,
+        method: 'POST',
+        url: `api/notes/${note.id}/taggable`,
+        data: { tag }
+    })
+}
+
+// api_note_taggable DELETE /api/notes/:note_id/taggable/:id(.:format)   
+export const deleteTaggable = (note, taggable) => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `api/notes/${note.id}/taggable/${taggable}`
     })
 }

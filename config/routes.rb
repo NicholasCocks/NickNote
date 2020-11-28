@@ -4,6 +4,8 @@
 #                 api_users POST   /api/users(.:format)                                                                     api/users#create {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#        api_note_taggables POST   /api/notes/:note_id/taggables(.:format)                                                  api/taggables#create {:format=>:json}
+#         api_note_taggable DELETE /api/notes/:note_id/taggables/:id(.:format)                                              api/taggables#destroy {:format=>:json}
 #   api_note_tags_with_note GET    /api/notes/:note_id/tags_with_note(.:format)                                             api/notes#tags_with_note {:format=>:json}
 #                 api_notes GET    /api/notes(.:format)                                                                     api/notes#index {:format=>:json}
 #                           POST   /api/notes(.:format)                                                                     api/notes#create {:format=>:json}
@@ -23,6 +25,7 @@
 #                           PATCH  /api/tags/:id(.:format)                                                                  api/tags#update {:format=>:json}
 #                           PUT    /api/tags/:id(.:format)                                                                  api/tags#update {:format=>:json}
 #                           DELETE /api/tags/:id(.:format)                                                                  api/tags#destroy {:format=>:json}
+#             api_taggables GET    /api/taggables(.:format)                                                                 api/taggables#index {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -36,21 +39,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :notes, only: [:index, :show, :create, :update, :destroy] do
-      get :tags_with_note, to: 'notes#tags_with_note', as: 'tags_with_note'
+      resources :taggables, only: [:create, :destroy]
     end
     resources :notebooks, only: [:index, :create, :destroy, :update]
-    resources :tags, only: [:index, :show, :create, :destroy, :update] do
-      get :notes_with_tag, to: 'tags#notes_with_tag', as: 'notes_with_tag'
-    end
-    # resources :taggables, only: [:create, :destroy] do 
-    #   resources :notes, only: [:index] do
-    #     post :create_taggable, to: 'taggables#create_taggable', as: 'create-taggable'
-        
-    #   end
-    #   resources :tags, only: [:index] do 
-    #     get :tags_with_note, to: 'taggables#tags_with_note', as: 'tags_with_note'
-    #   end
-    # end
+    resources :tags, only: [:index, :show, :create, :destroy, :update] 
+    resources :taggables, only: [:index]
   end
   root to: 'static_pages#root'
 end

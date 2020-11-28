@@ -5,13 +5,13 @@ import Notebook from './notebook';
 import { fetchAllNotes } from '../../actions/note_actions';
 import { fetchAllTags } from '../../actions/tags_actions';
 import { fetchAllNotebooks } from '../../actions/notebook_actions';
-import { findNotesWithTag } from '../../actions/taggable_actions';
+import { fetchAllTaggables } from '../../actions/taggable_actions';
 
 class TagNotebook extends React.Component {
 
     render() {
         const { notes, notesList, fetchNotes, fetchNotebooks, fetchAllTags,
-            notebookTitle, notebookURL, tag, findNotesWithTag } = this.props;
+            notebookTitle, notebookURL, tag, fetchAllTaggables } = this.props;
         return (
             <Notebook
             tag={tag}
@@ -22,7 +22,7 @@ class TagNotebook extends React.Component {
             notebookTitle={notebookTitle} 
             notebookURL={notebookURL}
             fetchAllTags={fetchAllTags}
-            findNotesWithTag={findNotesWithTag}/>
+            fetchAllTaggables={fetchAllTaggables}/>
         )
     }
 }
@@ -38,9 +38,7 @@ const mapStateToProps = (state, ownProps) => {
         tag = state.entities.tags[parseInt(ownProps.match.url.slice(12))];
     }
 
-    if (state.entities.taggable.notesFromTag) { 
-        notesList = Object.values(state.entities.taggable.notesFromTag)
-    }
+    
 
     return {
         notes: state.entities.notes,
@@ -53,10 +51,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAllTags: () => dispatch(fetchAllTags()),
         fetchNotes: () => dispatch(fetchAllNotes()),
-        findNotesWithTag: (tag) => dispatch(findNotesWithTag(tag)),
         fetchNotebooks: () => dispatch(fetchAllNotebooks()),
+        fetchAllTags: () => dispatch(fetchAllTags()),
+        fetchAllTaggables: () => dispatch(fetchAllTaggables()),
     }
 }
 

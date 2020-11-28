@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import Notebook from './notebook';
 import { fetchAllNotes } from '../../actions/note_actions';
 import { fetchAllNotebooks } from '../../actions/notebook_actions';
+import { fetchAllTags } from '../../actions/tags_actions';
+import { fetchAllTaggables } from '../../actions/taggable_actions';
 
 class NotesIndex extends React.Component {
     render() {
-        const { notes, notesList, fetchNotes, fetchNotebooks, notebookTitle, notebookURL } = this.props;
+        const { notes, notesList, fetchNotes, fetchNotebooks, fetchAllTags, fetchAllTaggables,
+            notebookTitle, notebookURL } = this.props;
         return (
             <Notebook
             notes={notes}
@@ -14,7 +17,9 @@ class NotesIndex extends React.Component {
             fetchNotes={fetchNotes}
             fetchNotebooks={fetchNotebooks}
             notebookTitle={notebookTitle} 
-            notebookURL={notebookURL}/>
+            notebookURL={notebookURL}
+            fetchAllTags={fetchAllTags}
+            fetchAllTaggables={fetchAllTaggables}/>
         )
     }
 }
@@ -34,6 +39,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchNotes: () => dispatch(fetchAllNotes()),
         fetchNotebooks: () => dispatch(fetchAllNotebooks()),
+        fetchAllTags: () => dispatch(fetchAllTags()),
+        fetchAllTaggables: () => dispatch(fetchAllTaggables()),
     }
 }
 

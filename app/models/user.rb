@@ -26,6 +26,10 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Notebook,
         dependent: :destroy
+    
+    has_many :taggables,
+        foreign_key: :author_id,
+        class_name: :Taggable
 
     has_many :tags,
         foreign_key: :author_id,

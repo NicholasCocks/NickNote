@@ -34,12 +34,7 @@ class Api::TagsController < ApplicationController
         end
     end
 
-    # api_tag_notes_with_tag GET    /api/tags/:tag_id/notes_with_tag(.:format)   
-    def notes_with_tag
-        @tag = current_user.tags.find(params[:tag_id])
-        @notes = @tag.notes
-        render 'api/notes/tagged'
-    end
+   
 
     def tags_params
         params.require(:tag).permit(:title, :tag_id)

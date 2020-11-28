@@ -1,28 +1,14 @@
 import * as TaggableApiUtil from '../util/taggable_api';
 
-export const RECEIVE_TAGS_FROM_NOTE = 'RECEIVE_TAGS_FROM_NOTE';
-export const RECEIVE_NOTES_FROM_TAG = 'RECEIVE_NOTES_FROM_TAG';
+export const RECEIVE_ALL_TAGGABLES = 'RECEIVE_ALL_TAGGABLES';
 
-const receiveTagsFromNote = (tags, note) => {
+const receiveAllTaggables = (taggables) => {
     return {
-        type: RECEIVE_TAGS_FROM_NOTE,
-        tags,
-        note
+        type: RECEIVE_ALL_TAGGABLES,
+        taggables
     }
 }
 
-const receiveNotesFromTag = (notes, tag) => {
-    return {
-        type: RECEIVE_NOTES_FROM_TAG,
-        notes,
-        tag
-    }
-}
-
-export const findNotesWithTag = (tag) => dispatch => {
-    return TaggableApiUtil.findNotesWithTag(tag).then(notes => dispatch(receiveNotesFromTag(notes, tag)));
-}
-
-export const findTagsWithNote = (note) => dispatch => {
-    return TaggableApiUtil.findTagsWithNote(note).then(tags => dispatch(receiveTagsFromNote(tags, note)))
+export const fetchAllTaggables = () => dispatch => {
+    return TaggableApiUtil.fetchAllTaggables().then(taggables => dispatch(receiveAllTaggables(taggables)));
 }

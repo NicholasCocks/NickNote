@@ -29,9 +29,9 @@ ActiveRecord::Base.transaction do
     tag2 = Tag.create({title: 'second tag', author_id: demoUser.id})
     tag3 = Tag.create({title: 'third tag', author_id: demoUser.id})
 
-    taggable1 = Taggable.create({note_id: note1.id, tag_id: tag1.id})
-    taggable2 = Taggable.create({note_id: note2.id, tag_id: tag2.id})
-    taggable3 = Taggable.create({note_id: note3.id, tag_id: tag3.id})
+    taggable1 = Taggable.create({note_id: note1.id, tag_id: tag1.id, author_id: demoUser.id})
+    taggable2 = Taggable.create({note_id: note2.id, tag_id: tag2.id, author_id: demoUser.id})
+    taggable3 = Taggable.create({note_id: note3.id, tag_id: tag3.id, author_id: demoUser.id})
 end
 # https://github.com/appacademy/bluebird/blob/master/db/seeds.rb
  
