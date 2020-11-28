@@ -14,6 +14,10 @@ const TagsReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 [action.tag.id]: action.tag
             })
+        case (REMOVE_TAG):
+            let nextState = Object.assign({}, state);
+            delete nextState[action.tag.id]
+            return nextState;
         default:
             return state;
     }

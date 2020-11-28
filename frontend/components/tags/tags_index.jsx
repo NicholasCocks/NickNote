@@ -1,5 +1,6 @@
 import React from 'react';
 import NotepadSplash from '../notepad/notepad_splash';
+import TagsIndexItem from './tags_index_item';
 import { ProtectedRoute } from '../../util/route_util';
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
@@ -21,7 +22,8 @@ class TagsIndex extends React.Component {
 
     createTagsList() {
         return this.props.tagsList.map((tag, index) => {
-            return <Link to={`/notes/tags/${tag.id}`} key={index} className="tags_index_list_item">{tag.title}</Link>
+            return <TagsIndexItem key={index} tag={tag} updateTag={this.props.updateTag} deleteTag={this.props.deleteTag}/>
+            // return <Link to={`/notes/tags/${tag.id}`} key={index} className="tags_index_list_item">{tag.title}</Link>
         });
     }
 

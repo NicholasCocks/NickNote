@@ -28,9 +28,9 @@ export const updateTag = (tag) => {
     })
 }
 
-export const deleteTag = (tagId) => {
+export const deleteTag = (tag) => {
     return $.ajax({
         method: 'DELETE',
-        url: `api/tags/${tagId}`
+        url: `api/tags/${tag.id}`
     })
 }

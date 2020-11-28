@@ -24,7 +24,8 @@ class Note < ApplicationRecord
 
     has_many :taggables,
         foreign_key: :note_id,
-        class_name: :Taggable 
+        class_name: :Taggable,
+        dependent: :destroy
 
     has_many :tags,
         through: :taggables,

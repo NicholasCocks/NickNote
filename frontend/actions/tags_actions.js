@@ -42,7 +42,7 @@ export const updateTag = (tag) => dispatch => {
 }
 
 export const deleteTag = (tag) => dispatch => {
-    return TagApiUtil.deleteTag(tag).then(tag => dispatch(removeTag(tag)));
+    return TagApiUtil.deleteTag(tag).then(() => dispatch(removeTag(tag)));
 }
 
 export const findNotesWithTag = (tag) => dispatch => {}
