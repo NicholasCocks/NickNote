@@ -1,10 +1,27 @@
+.notepad_tag_bar {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: 42px;
+    box-sizing: border-box;
+    border-top: 1px solid $light-gray;
+    svg {
+        color: $gray;
+    }
+}
+
 .notepad_tag_drop_results_container {
     position: absolute;
     display: flex;
     flex-direction: column;
     bottom: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     border: 1px solid $light-gray;
     border-radius: 7px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
@@ -14,5 +31,24 @@
     }
     p:hover {
         background-color: $light-gray;
+    }
+}
+
+.notepad_tag_drop_tags_container {
+    display: flex;
+}
+
+.notepad_tag_drop_tag_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $lightest-gray;
+    font-size: small;
+    padding: 5px;
+    border-radius: 7px;
+    p {}
+    svg {
+        margin-left: 5px;
+        color: gray;
     }
 }

@@ -49,12 +49,15 @@ class NotepadTagDropDown extends React.Component {
   selectName(tag) {
       console.log(tag)
       this.props.createTaggable(this.props.note, tag);
-      const name = tag.title;
-      this.setState({inputVal: name});
+      this.setState({inputVal: ''});
   }
 
   deleteTaggable(taggable) {
+    
+    this.tags = this.tags.filter((tag) => {return tag.id !== taggable.tag_id} )
+    
     this.props.deleteTaggable(taggable)
+    this.setState({inputVal: ''});
   }
 
   render() {
@@ -63,9 +66,10 @@ class NotepadTagDropDown extends React.Component {
               this.tags.push(this.props.tags[taggable.tag_id]);
 
               return (
-              <p key={index}>{this.props.tags[taggable.tag_id].title}
+                <div className="notepad_tag_drop_tag_container">
+              <p key={index} >{this.props.tags[taggable.tag_id].title}
               <FontAwesomeIcon icon={faPlus} transform={{ rotate: 45 }} onClick={() => this.deleteTaggable(taggable)}/>
-              </p>)
+              </p></div>)
           }
       }, this) 
 
@@ -79,13 +83,13 @@ class NotepadTagDropDown extends React.Component {
   
       return (
           <div className="notepad_tag_bar">
-              <FontAwesomeIcon icon={faTag}/>
+              <FontAwesomeIcon icon={faTag} transform={{ rotate: 45 }}/>
               <input
                   onChange={this.handleInput}
                   value={this.state.inputVal}
                   placeholder='Search...'/>
               <div className="notepad_tag_drop_results_container">{results}</div>
-              <div>{tags}</div>        
+              <div className="notepad_tag_drop_tags_container">{tags}</div>        
           </div>
   
       )
