@@ -1,0 +1,16 @@
+.tags_index_tags_list_container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.tags_index_list_item {
+    padding: 3px;
+    border-radius: 7px;
+    font-family: $baseArial;
+    margin-left: 20px;
+}
+
+.tags_index_list_item:hover {
+    background-color: $light-gray;
+}

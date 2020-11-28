@@ -1,0 +1,1 @@
+json.extract! @tag, :id, :title, :author_id
