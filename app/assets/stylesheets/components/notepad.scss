@@ -52,3 +52,13 @@
     font-weight: bold;
     color: $gray;
 }
+
+.notepad_tag_bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $light-gray;
+}

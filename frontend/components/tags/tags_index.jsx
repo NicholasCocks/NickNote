@@ -12,7 +12,7 @@ class TagsIndex extends React.Component {
 
     createTagsList() {
         return this.props.tagsList.map((tag, index) => {
-            return <Link to={`/notes/index`} key={index} >{tag.title}</Link>
+            return <Link to={`/notes/tags/${tag.id}`} key={index} >{tag.title}</Link>
         });
     }
 
@@ -29,9 +29,7 @@ class TagsIndex extends React.Component {
                     </div>
                    
                 </div>
-                
-                    <ProtectedRoute component={NotepadSplash} />
-             
+                <ProtectedRoute component={NotepadSplash} />
             </div>
         )
     }

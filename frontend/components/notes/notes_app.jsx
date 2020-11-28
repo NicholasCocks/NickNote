@@ -4,6 +4,7 @@ import NotebooksIndexContainer from '../notebooks/notebooks index/notebooks_inde
 import TagsIndexContainer from '../tags/tags_index_container';
 import NotesIndexContainer from '../notebooks/notes_index_container';
 import NNotebookContainer from '../notebooks/n_notebook_container';
+import TagNotebookContainer from '../notebooks/tag_notebook_container';
 import TrashContainer from '../notebooks/trash_container';
 import { ProtectedRoute } from '../../util/route_util';
 import { Switch, withRouter } from 'react-router-dom';
@@ -27,6 +28,7 @@ class NotesApp extends React.Component {
                     <ProtectedRoute path="/notes/tags/index" component={TagsIndexContainer} />
                     <ProtectedRoute path="/notes/trash" component={TrashContainer} />
                     <ProtectedRoute path="/notes/notebook/:notebookId" component={NNotebookContainer} />
+                    <ProtectedRoute path="/notes/tags/:tagId" component={TagNotebookContainer} />
                     <ProtectedRoute component={NotesIndexContainer} /> 
                 </Switch>
             </div>

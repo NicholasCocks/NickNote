@@ -1,6 +1,9 @@
 import React from 'react';
 import { MoveFromTrashButton, MoveToTrashButton } from './notepad_trash_icons';
-import NotepadNotebookDropdown from './notepad_notebook_dropdown';
+import NotepadNotebookDropdown from './notepad_notebook_dropdown'; 
+import NotepadTagDropDown from './notepad_tag_dropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTag, faTags } from '@fortawesome/free-solid-svg-icons';
 
 
 class Notepad extends React.Component {
@@ -20,6 +23,10 @@ class Notepad extends React.Component {
     moveNoteFromTrash() {
         this.state.trashed = false;
         this.props.updateNote(this.state);
+    }
+
+    componentDidMount() {
+        this.props.findTagsWithNote(this.props.note)
     }
 
     componentDidUpdate(prevprops, prevstate) {
@@ -54,8 +61,6 @@ class Notepad extends React.Component {
                 }
         })}
 
-        
-
         return(
             <div className="notepad_container">
                 <header className="notepad_header">
@@ -77,9 +82,12 @@ class Notepad extends React.Component {
                         onChange={this.updateField('body')}
                         placeholder="Start writing..." />
                 </div>
-                <div>
-                    <div>{tags}</div>
+                <div className="notepad_tag_bar">
+                        <FontAwesomeIcon icon={faTag}/>
+                        <div>{tags}</div>
+                        {/* remove this tag, add new tag */}
                 </div>
+                
             </div>
         )
     }

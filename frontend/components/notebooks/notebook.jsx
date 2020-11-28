@@ -8,20 +8,41 @@ import NotebookItem from './notebook_item';
 
 class Notebook extends React.Component {
     componentDidMount() {
+        if (this.props.fetchAllTags){
+            this.props.fetchAllTags();
+        }
         this.props.fetchNotes();
         this.props.fetchNotebooks();
+        
+    }
+
+    componentDidUpdate() {
+        if (this.props.tag) {
+            this.props.findNotesWithTag(this.props.tag)
+        }
     }
 
     createNotesList() {
         const notebookURL = this.props.notebookURL;
+        if (notebookURL === 'tags') {
+            return this.props.notesList.map((note, index) => {
+                debugger
+                if (note[this.props.tag.id]) {
+                    return  <NotebookItem key={index} note={note[[this.props.tag.id]]} notebookURL={this}/>
+                }  
+            }, notebookURL);
+        } else {
+            return this.props.notesList.map((note, index) => {
+                return  <NotebookItem key={index} note={note} notebookURL={this}/>
+            }, notebookURL);
+        }
         
-        return this.props.notesList.map((note, index) => {
-            return  <NotebookItem key={index} note={note} notebookURL={this}/>
-        }, notebookURL);
     }
-
     
     render() {
+        
+        
+
         return(
             <div className="notebook_container"> 
                 <div className="notebook_noteslist_container">
@@ -40,6 +61,7 @@ class Notebook extends React.Component {
                     <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/trash/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/notebook/:notebookId/:noteId" component={NotepadContainer} />
+                    <ProtectedRoute path="/notes/tags/:tagId/:noteId" component={NotepadContainer} />
                     <ProtectedRoute component={NotepadSplash} />
                </Switch>
             </div>
