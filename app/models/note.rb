@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  trashed     :boolean          default(FALSE)
+#  starred     :boolean          default(FALSE)
 #
 class Note < ApplicationRecord
     validates :notebook_id, presence: true

@@ -38,7 +38,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    debugger
     return {
         fetchNotes: () => dispatch(fetchAllNotes()),
         fetchNotebooks: () => dispatch(fetchAllNotebooks()),
