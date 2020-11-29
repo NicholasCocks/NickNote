@@ -145,3 +145,18 @@
 .active:hover {
     background-color: $dark-gray;
 }
+
+.notes_nav_github_link {
+    position: fixed;
+    bottom: 0;
+    margin-left: 82px;
+    margin-bottom: 7px;
+    width: 60px;
+    color: $gray;
+    filter: invert(70%);
+    cursor: pointer;
+}
+
+.notes_nav_github_link:hover {
+    filter: invert(100%);
+}

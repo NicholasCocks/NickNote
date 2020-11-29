@@ -79,6 +79,10 @@ class NotepadTagDropDown extends React.Component {
           )
         }
       }, this);
+
+      let searchResultsClass = "notepad_tag_drop_results_container"
+
+      if (this.matches().length === 0) {searchResultsClass = ""}
   
       return (
           <div className="notepad_tag_bar">
@@ -87,7 +91,7 @@ class NotepadTagDropDown extends React.Component {
                   onChange={this.handleInput}
                   value={this.state.inputVal}
                   placeholder='Search...'/>
-              <div className="notepad_tag_drop_results_container">{results}</div>
+              <div className={searchResultsClass}>{results}</div>
               <div className="notepad_tag_drop_tags_container">{tags}</div>        
           </div>
   

@@ -100,6 +100,7 @@ class NotesNav extends React.Component {
                 <NavLink to="/notes/notebook/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
                 <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
+                <a href="https://github.com/NickDjukic"><img src={window.github_logo} className="notes_nav_github_link" /></a>
             </div>
         )
     }
