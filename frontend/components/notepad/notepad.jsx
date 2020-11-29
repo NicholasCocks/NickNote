@@ -64,7 +64,8 @@ class Notepad extends React.Component {
                     <textarea 
                         value={this.state.body}
                         onChange={this.updateField('body')}
-                        placeholder="Start writing..." />
+                        placeholder="Start writing..." 
+                        className="notepad_input_textarea"/>
                 </div>
                 <NotepadTagDropDown tags={this.props.tags} note={this.props.note} 
                 createTaggable={this.props.createTaggable} deleteTaggable={this.props.deleteTaggable} taggables={this.props.taggables}/>

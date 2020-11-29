@@ -16,14 +16,19 @@ class TagsIndex extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchAllNotes();
         this.props.fetchAllTags();
+        this.props.fetchAllTaggables();
+        this.props.fetchAllNotes();
     }
 
     createTagsList() {
         return this.props.tagsList.map((tag, index) => {
-            return <TagsIndexItem key={index} tag={tag} updateTag={this.props.updateTag} deleteTag={this.props.deleteTag}/>
-            // return <Link to={`/notes/tags/${tag.id}`} key={index} className="tags_index_list_item">{tag.title}</Link>
+            return <TagsIndexItem 
+            key={index} tag={tag} 
+            updateTag={this.props.updateTag} 
+            deleteTag={this.props.deleteTag}
+            taggables={this.props.taggables}/>
+           
         });
     }
 
@@ -43,9 +48,9 @@ class TagsIndex extends React.Component {
                 <div className="notebook_noteslist_container">
                     <header className="notebook_header">
                         <h3 className="notebook_header_heading">Tags</h3>
-                        <form onSubmit={this.createTag}>
+                        <form onSubmit={this.createTag} className="tags_index_form">
                             <input type="text" 
-                            placeholder="Create New Tag" 
+                            placeholder="Create New Tag..." 
                             value={this.state.title}
                             onChange={this.update('title')} />
                             <button type="submit"><FontAwesomeIcon icon={faTag}/></button>

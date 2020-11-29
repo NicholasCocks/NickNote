@@ -1,8 +1,9 @@
 .tags_index_tags_list_container {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 5px;
     width: 370px;
+    margin-top: 10px;
     svg {
         color: gray;
     }
@@ -11,16 +12,27 @@
     }
 }
 
+.tags_index_form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 4px;
+}
+
 .tags_index_list_item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 3px;
-    border-radius: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    // border-radius: 10px;
     font-family: $baseArial;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .tags_index_list_item:hover {
-    background-color: $light-gray;
+    background-color: #f6e4a162;
 }

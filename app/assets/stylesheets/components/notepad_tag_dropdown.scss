@@ -13,6 +13,10 @@
     svg {
         color: $gray;
     }
+    input {
+        margin-left: 3px;
+        margin-bottom: 3px;
+    }
 }
 
 .notepad_tag_drop_results_container {
@@ -42,15 +46,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $lightest-gray;
+    background-color: rgb(238, 238, 238);
     font-size: small;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 7px;
-    p {}
+    border-radius: 15px;
+    margin-left: 8px;
     svg {
         margin-left: 5px;
-        color: gray;
+        color: rgb(187, 186, 186);
     }
 }
