@@ -67,6 +67,41 @@
     padding: 10px;
 }
 
+.notes_nav_search_bar {
+    width: 190px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: $darkest-gray;
+    color: $lightest-gray;
+    svg {
+        margin-right: 7px;
+    }
+}
+
+.notes_nav_search_results {
+    animation: fadein 0.5s;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: $lightest-gray;
+    color: $darkest-gray;
+    min-width: 160px;
+    border-radius: 10px;
+    top: 130px;
+    left: 30px;
+    a {
+        padding: 3px;
+        font-size: 14px;
+    }
+    a:hover {
+        background-color: $light-gray;
+    }
+}
+
 .notes_new_note_button {
     width: 190px;
     margin-top: 20px;

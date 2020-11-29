@@ -20,6 +20,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
         email: Object.values(state.entities.users)[0].email,
         note: { title: '', body: '', notebook_id: notebook_id },
+        notes: Object.values(state.entities.notes).filter(note => {
+            return note.trashed === false
+        }),
     }
 }
 
