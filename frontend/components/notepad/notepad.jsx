@@ -50,7 +50,7 @@ class Notepad extends React.Component {
                 <header className="notepad_header">
                     <NotepadNotebookDropdown notebooks={this.props.notebooks} note={this.state}/>
                     <aside>
-                        <p>buttons will go here</p>    
+                        <p></p> 
                         <div className="notepad_trash_button">{trashButton}</div>
                     </aside>
                 </header>
