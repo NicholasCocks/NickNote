@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'ffaker'
+require 'faker'
 Note.destroy_all
 Notebook.destroy_all
 User.destroy_all
