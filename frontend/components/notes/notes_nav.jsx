@@ -45,7 +45,7 @@ class NotesNav extends React.Component {
                 {logoutButton}
                 <button className="notes_new_note_button" onClick={this.createNote}><FontAwesomeIcon icon={faPlus}/>New Note</button>    
                 <NavLink to="/notes/starred" className="notes_nav_link"><FontAwesomeIcon icon={faStar}/>Starred</NavLink>
-                <NavLink to="/notes/index" className="notes_nav_link"><FontAwesomeIcon icon={faClipboard}/>All Notes</NavLink>
+                <NavLink to="/notes/index" className="notes_nav_link"><FontAwesomeIcon icon={faClipboard}/> All Notes</NavLink>
                 <NavLink to="/notes/notebook/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
                 <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
