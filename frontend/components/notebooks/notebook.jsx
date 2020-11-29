@@ -44,6 +44,7 @@ class Notebook extends React.Component {
                 </div>
                 <Switch>
                     <ProtectedRoute path="/notes/tags/:tagId/:noteId" component={NotepadContainer} />
+                    <ProtectedRoute path="/notes/starred/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/index/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/trash/:noteId" component={NotepadContainer} />
                     <ProtectedRoute path="/notes/notebook/:notebookId/:noteId" component={NotepadContainer} />
