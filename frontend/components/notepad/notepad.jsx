@@ -72,10 +72,12 @@ class Notepad extends React.Component {
         return(
             <div className="notepad_container">
                 <header className="notepad_header">
-                    <div>{starbutton}</div>
-                    <NotepadNotebookDropdown notebooks={this.props.notebooks} note={this.state}/>
-                    <aside>
-                        <p></p>
+                    <div className="notepad_header_top_row">
+                        <div>{starbutton}</div>
+                        <NotepadNotebookDropdown notebooks={this.props.notebooks} note={this.state}/>
+                    </div>
+                    <aside className="notepad_header_bottom_row">
+                        <p> Last Updated {new Date(this.state.updated_at).toDateString()}</p>
                         <div className="notepad_trash_button">{trashButton}</div>
                     </aside>
                 </header>

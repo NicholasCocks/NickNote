@@ -15,6 +15,26 @@
     }
 }
 
+.notepad_header_top_row {
+    display: flex;
+    align-items: center;
+    svg {
+        margin-right: 8px;
+        margin-bottom: 1px;
+    }
+}
+
+.notepad_header_bottom_row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    p {
+        margin-left: 20px;
+        font-size: small;
+        color: gray;
+    }
+}
+
 .notepad_trash_button {
     color: $dark-gray;
     background-color: $lightest-gray;
