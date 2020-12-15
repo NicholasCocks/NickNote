@@ -3,11 +3,13 @@
     flex-grow: 0;
     flex-shrink: 0;
     align-items: center;
+    // justify-content: space-between;
     padding: 10px;
-    position: fixed;
+    position: relative;
+    margin-top: auto;
     bottom: 0;
     width: 100%;
-    max-height: 42px;
+    max-height: 38px;
     box-sizing: border-box;
     border-top: 1px solid $light-gray;
     svg {
@@ -40,6 +42,11 @@
 
 .notepad_tag_drop_tags_container {
     display: flex;
+    width: 200px;
+    flex-grow: 1;
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-right: 10px;
 }
 
 .notepad_tag_drop_tag_container {
@@ -57,4 +64,12 @@
         margin-left: 5px;
         color: rgb(187, 186, 186);
     }
+}
+
+.notepad_tag_drop_saved_status {
+    display: inline-block;
+    color: $gray;
+    font-size: small;
+    margin-left: auto;
+    margin-right: 10px;
 }
