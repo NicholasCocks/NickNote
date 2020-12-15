@@ -1,0 +1,106 @@
+.splash_nav_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgba(42, 35, 66, 0.6);
+    border-bottom: none;
+    img {
+        width: 55px;
+        margin-right: 6px;
+    }
+    h3 {
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+    section { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+    h3 {
+        
+    }
+}
+
+.login_link {
+    color: white;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 2px solid white;
+    font-family: $baseArial;
+    border-radius: 3px;
+}
+
+.splash_body {
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(241,132,75, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: $baseArial;
+    h1 {
+        font-size: 50px;
+    }
+    h3 {
+        font-size: large;
+        
+    }
+}
+
+.signup_link {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: rgb(241,132,75);
+    width: 200px;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin: 15px;
+}
+.signup_link:hover {
+    color: white;
+    background-color:rgba(241,132,75, 0.0);
+}
+
+.splash_footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: wheat;
+    font-family: $baseArial;
+    padding-right: 20px;
+    box-sizing: border-box;
+    background-color: rgba(42, 35, 66, 0.6);
+    height: 50px;
+    svg {
+        font-size: 25px;
+    }
+    a {
+        margin-right: 10px;
+    }
+    a:hover {
+        color: white;
+    }
+}
+
