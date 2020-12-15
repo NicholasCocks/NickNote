@@ -4,6 +4,10 @@ import {
     REMOVE_TAG
 } from '../actions/tags_actions';
 
+import {
+    LOGOUT_CURRENT_USER
+} from '../actions/session'
+
 const TagsReducer = (state = {}, action) => {
     Object.freeze(state);
 
@@ -18,6 +22,8 @@ const TagsReducer = (state = {}, action) => {
             let nextState = Object.assign({}, state);
             delete nextState[action.tag.id]
             return nextState;
+        case (LOGOUT_CURRENT_USER):
+            return Object.assign({})
         default:
             return state;
     }

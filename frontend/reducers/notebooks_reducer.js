@@ -3,6 +3,10 @@ import {
     RECEIVE_NOTEBOOK
 } from '../actions/notebook_actions';
 
+import {
+    LOGOUT_CURRENT_USER,
+} from '../actions/session';
+
 const NotebooksReducer = (state = {}, action) => {
     Object.freeze(state);
 
@@ -14,6 +18,8 @@ const NotebooksReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 [action.notebook.id]: action.notebook
             })
+        case (LOGOUT_CURRENT_USER): 
+            return Object.assign({})
         default:
             return state;
     }

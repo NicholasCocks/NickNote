@@ -3,6 +3,10 @@ import {
     RECEIVE_NOTE
 } from '../actions/note_actions';
 
+import {
+    LOGOUT_CURRENT_USER,
+} from '../actions/session';
+
 const NotesReducer = (state = {}, action) => {
     Object.freeze(state);
 
@@ -13,6 +17,8 @@ const NotesReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 [action.note.id]: action.note
             })
+        case (LOGOUT_CURRENT_USER):
+            return Object.assign({})
         default:
             return state;
     }
