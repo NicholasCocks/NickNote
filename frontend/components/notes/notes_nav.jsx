@@ -1,7 +1,8 @@
 import React from 'react'; 
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faClipboard, faBook, faTag, faTrash, faChevronDown, faStar, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faClipboard, faBook, faTag, faTrash, faChevronDown, faStar, faSearch, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 class NotesNav extends React.Component {
     constructor(props) {
@@ -100,7 +101,11 @@ class NotesNav extends React.Component {
                 <NavLink to="/notes/notebook/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
                 <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
-                <a href="https://github.com/NickDjukic"><img src={window.github_logo} className="notes_nav_github_link" /></a>
+                <div className="notes_nav_about_links_bar">
+                    <a href="https://github.com/NickDjukic"><FontAwesomeIcon icon={faGithub} className="notes_nav_about_link" /></a>
+                    <a href="https://www.linkedin.com/in/nicholas-cocks/"><FontAwesomeIcon icon={faLinkedin} className="notes_nav_about_link" /></a>
+                    <a href="https://nickdjukic.github.io/"><FontAwesomeIcon icon={faGlobe} className="notes_nav_about_link" /></a>
+                </div>
             </div>
         )
     }
