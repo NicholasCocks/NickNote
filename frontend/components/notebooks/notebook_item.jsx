@@ -15,7 +15,7 @@ class NotebookItem extends React.Component {
             <NavLink to={`/notes/${notebookURL}/${note.id}`} className="notebook_item_container" activeClassName="notebook_item_container_active"> 
                 <main>
                     <p className="notebook_item_title">{noteTitle}</p>
-                    <p className="notebook_item_body">{note.body}</p>
+                    <p className="notebook_item_body">{note.body.replace(/<[^>]+>/g, '')}</p>
                 </main>
                 <p className="notebook_item_updated_at">{date}</p>
             </NavLink> 

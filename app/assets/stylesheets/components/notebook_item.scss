@@ -9,6 +9,7 @@
     padding-bottom: 20px;
     width: 370px;
     min-height: 120px;
+    max-height: 120px;
     border-bottom: 1px solid $light-gray;
     main {
         display: flex;
@@ -35,6 +36,9 @@
     color: $gray;
     font-size: 14px;
     margin-bottom: 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .notebook_item_updated_at {

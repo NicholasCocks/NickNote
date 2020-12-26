@@ -3,12 +3,15 @@ import { MoveFromTrashButton, MoveToTrashButton } from './notepad_trash_icons';
 import { ToStarButton, UnstarButton } from './notepad_star_icons';
 import NotepadNotebookDropdown from './notepad_notebook_dropdown'; 
 import NotepadTagDropDown from './notepad_tag_dropdown';
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
 
 class Notepad extends React.Component {
     constructor(props) {
         super(props) 
         this.state = { note: this.props.note, saved: true }
         this.updateField = this.updateField.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.moveNoteToTrash = this.moveNoteToTrash.bind(this);
         this.moveNoteFromTrash = this.moveNoteFromTrash.bind(this);
         this.moveNoteToStarred = this.moveNoteToStarred.bind(this);
@@ -52,6 +55,7 @@ class Notepad extends React.Component {
     }
     
     updateField(field) {
+        debugger
         //debouncing
         clearTimeout(this.timer)
         
@@ -65,6 +69,22 @@ class Notepad extends React.Component {
 
         //statesave
         return e => this.setState({note: Object.assign({}, this.state.note, { [field]: e.currentTarget.value } ), saved: false}); 
+    }
+
+    handleChange(event, editor) {
+        let text = editor.getData();
+
+        clearTimeout(this.timer2)
+        
+        //autosave
+        if (!this.state.saved) {
+            this.timer2 = setTimeout(() => {
+                this.props.updateNote(this.state.note)
+                this.setState({note: this.state.note, saved: true})
+            }, 1000)
+        }
+
+        this.setState({note: Object.assign({}, this.state.note, { body: text }), saved: false});
     }
 
     render() {
@@ -103,11 +123,31 @@ class Notepad extends React.Component {
                         value={this.state.note.title}
                         onChange={this.updateField('title')} 
                         className="notepad_input_title" />
-                    <textarea 
-                        value={this.state.note.body}
-                        onChange={this.updateField('body')}
-                        placeholder="Start writing..." 
-                        className="notepad_input_textarea"/>
+                    <CKEditor
+                        onReady={ editor => {
+                            console.log( 'Editor is ready to use!', editor );
+
+                            editor.ui.getEditableElement().parentElement.parentElement.insertBefore(
+                                editor.ui.view.toolbar.element,
+                                editor.ui.getEditableElement().parentElement.parentElement.childNodes[1]
+                            );
+
+                            this.editor = editor;
+                        } }
+                        onError={ ( { willEditorRestart } ) => {
+                            if ( willEditorRestart ) {
+                                this.editor.ui.view.toolbar.element.remove();
+                            }
+                        } }
+                        onChange={this.handleChange} 
+                        editor={ DecoupledEditor }
+                        data={this.state.note.body}
+                        config={ {toolbar: {
+                            items: [ 'bold', 'underline', 'strikethrough', 'undo', 'redo', 'numberedList', 'bulletedList' ],
+                            viewportTopOffset: 30,
+                            shouldNotGroupWhenFull: true
+                            }, placeholder: 'Start writing...'} }
+                    />
                 </div>
                 <NotepadTagDropDown tags={this.props.tags} note={this.props.note} saved={this.state.saved}
                 createTaggable={this.props.createTaggable} deleteTaggable={this.props.deleteTaggable} taggables={this.props.taggables}/>
