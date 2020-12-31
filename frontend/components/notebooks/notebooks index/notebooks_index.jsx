@@ -24,7 +24,7 @@ class NotebooksIndex extends React.Component {
     }
 
     createNotebook(e) {
-        debugger
+
         e.preventDefault();
         this.props.createNotebook({title: this.state.title});
     }

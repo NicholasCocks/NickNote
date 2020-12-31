@@ -1,7 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar} from '@fortawesome/free-solid-svg-icons';
 
 class NotebookItem extends React.Component {
+    favorited() {
+        if (this.props.note.starred) { 
+            return <FontAwesomeIcon icon={faStar}/> 
+        } else { 
+            return null 
+        }
+    }
 
     render() {
         const note = this.props.note;
@@ -14,7 +23,8 @@ class NotebookItem extends React.Component {
         return (
             <NavLink to={`/notes/${notebookURL}/${note.id}`} className="notebook_item_container" activeClassName="notebook_item_container_active"> 
                 <main>
-                    <p className="notebook_item_title">{noteTitle}</p>
+                    <div className="notebook_item_title"><p>{noteTitle}</p> {this.favorited()}</div>
+                    
                     <p className="notebook_item_body">{note.body.replace(/<[^>]+>/g, '')}</p>
                 </main>
                 <p className="notebook_item_updated_at">{date}</p>

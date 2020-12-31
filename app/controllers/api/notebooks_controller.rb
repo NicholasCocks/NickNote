@@ -13,7 +13,7 @@ class Api::NotebooksController < ApplicationController
     end
 
     def update
-        # debugger
+
         @notebook = current_user.notebooks.find(params[:id])
         if @notebook.update(notebooks_params) 
             render 'api/notebooks/show'

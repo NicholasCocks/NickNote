@@ -14,7 +14,6 @@ const NotebooksReducer = (state = {}, action) => {
         case (RECEIVE_ALL_NOTEBOOKS):
             return Object.assign({}, state, action.notebooks);
         case (RECEIVE_NOTEBOOK):
-            debugger
             return Object.assign({}, state, {
                 [action.notebook.id]: action.notebook
             })

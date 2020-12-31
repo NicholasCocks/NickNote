@@ -14,32 +14,23 @@ class Notepad extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.moveNoteToTrash = this.moveNoteToTrash.bind(this);
         this.moveNoteFromTrash = this.moveNoteFromTrash.bind(this);
-        this.moveNoteToStarred = this.moveNoteToStarred.bind(this);
-        this.moveNoteFromStarred = this.moveNoteFromStarred.bind(this);
+        this.moveNoteStarred = this.moveNoteStarred.bind(this);
     }
 
     moveNoteToTrash() {
         this.props.note.trashed = true;
-        this.setState({trashed: true});
         this.props.updateNote(this.state.note);
     }
 
     moveNoteFromTrash() {
         this.props.note.trashed = false;
-        this.setState({trashed: false});
         this.props.updateNote(this.state.note);
     } 
 
-    moveNoteToStarred() {
-        this.props.note.starred = true;
-        this.setState({starred: true});
+    moveNoteStarred() {
+        this.props.note.starred = !this.props.note.starred;
+        this.setState({starred: !this.props.note.starred})
         this.props.updateNote(this.state.note)
-    }
-
-    moveNoteFromStarred() {
-        this.props.note.starred = false;
-        this.setState({starred: false});
-        this.props.updateNote(this.state.note);
     }
 
     componentDidMount() {
@@ -48,14 +39,13 @@ class Notepad extends React.Component {
 
     componentDidUpdate(prevprops, prevstate) {
         if (this.props.note.id !== prevprops.note.id) {
-            debugger
+
             this.props.updateNote(prevstate.note)
             this.setState({note: this.props.note})
         }
     }
     
     updateField(field) {
-        debugger
         //debouncing
         clearTimeout(this.timer)
         
@@ -90,7 +80,7 @@ class Notepad extends React.Component {
     render() {
         const urlTrashCheck = this.props.path.slice(7, 12);
         let trashButton;
-        let starbutton;
+        let starbutton = this.props.note.starred ? <UnstarButton /> : <ToStarButton />
 
         if (this.state.note.trashed) { 
             trashButton = <button onClick={this.moveNoteFromTrash}><MoveFromTrashButton /> Restore</button>
@@ -98,17 +88,11 @@ class Notepad extends React.Component {
             trashButton = <button onClick={this.moveNoteToTrash}><MoveToTrashButton /> Trash</button>
         }
 
-        if (this.state.note.starred) {
-            starbutton = <button onClick={this.moveNoteFromStarred}><UnstarButton /></button>
-        } else {
-            starbutton = <button onClick={this.moveNoteToStarred}><ToStarButton /></button>
-        }
-
         return(
             <div className="notepad_container">
                 <header className="notepad_header">
                     <div className="notepad_header_top_row">
-                        <div>{starbutton}</div>
+                        <div><button onClick={this.moveNoteStarred}>{starbutton}</button></div>
                         <NotepadNotebookDropdown notebooks={this.props.notebooks} note={this.state.note}/>
                     </div>
                     <aside className="notepad_header_bottom_row">
