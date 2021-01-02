@@ -9,11 +9,19 @@
     transition: all .5 ease;
 }
 
+
 .notepad_notebook_dropdown_title {
-    color: black;
-    color: gray;
+    display: flex;
+    align-items: center;
+    color: $gray;
+    padding: 5px;
+    border-radius: 3px;
 }
 
+.notepad_notebook_dropdown_title:hover {
+    background-color: $lightest-gray;
+    color: $dark-gray;
+}
 .notepad_notebook_dropdown_menu {
     display: none;
     align-items: center;
@@ -33,6 +41,9 @@
         padding: 3px;
         width: 100%;
     }
+    a:hover {
+        background-color: $lightest-gray;
+    }
 }
 
 .menu_open {
@@ -51,5 +62,6 @@
 }
 
 .notebook_dropdown_active {
-    background-color: $lightest-gray;
+    background-color: $light-gray;
+    color: $dark-gray;
 }

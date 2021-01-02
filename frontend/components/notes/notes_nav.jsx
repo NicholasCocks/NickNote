@@ -13,10 +13,26 @@ class NotesNav extends React.Component {
         this.setOpen = this.setOpen.bind(this);
         this.selectName = this.selectName.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleClickLocation = this.handleClickLocation.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickLocation);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickLocation);
     }
 
     handleInput(event) {
         this.setState({inputVal: event.currentTarget.value});
+    }
+
+    handleClickLocation(e) {
+        // debugger
+        if (this.state.open && !this.notenavmodal.contains(e.target)) {
+            this.setState({open: false})
+        } 
     }
 
     selectName(event) {
@@ -61,7 +77,10 @@ class NotesNav extends React.Component {
         let logoutButton;
         
         if (this.state.open) { 
-            logoutButton = <button className="notes_logout_button"onClick={this.logout}>Logout {this.props.email}</button>
+            logoutButton = <button 
+                className="notes_logout_button" 
+                onClick={this.logout}
+                 >Logout {this.props.email}</button>
         } else {
             logoutButton = null; 
         }
@@ -78,12 +97,12 @@ class NotesNav extends React.Component {
          
         return ( 
             <div className="notes_nav_container">
-                <div className="notes_nav_dropdown" onClick={() => this.setOpen()}>
+                <div className="notes_nav_dropdown" onClick={() => this.setOpen()} ref={notenavmodal => this.notenavmodal = notenavmodal}>
                     <img src={window.sloth} className="notes_nav_icon"></img>
                     <p className="notes_nav_email">{this.props.email}</p>
                     <FontAwesomeIcon icon={faChevronDown} className="notes_nav_chevron"/>
+                    {logoutButton}
                 </div>
-                {logoutButton}
                 <div className="notes_nav_search_bar">
                     <FontAwesomeIcon icon={faSearch} />
                     <input

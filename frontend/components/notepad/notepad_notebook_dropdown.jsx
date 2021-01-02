@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 class NotepadNotebookDropdown extends React.Component {
     constructor(props) {
@@ -24,7 +26,6 @@ class NotepadNotebookDropdown extends React.Component {
     }
 
     handleClickLocation(e) {
-        // debugger
         if (this.state.open && !this.notebookmodal.contains(e.target)) {
             this.setState({open: false})
         } 
@@ -56,7 +57,10 @@ class NotepadNotebookDropdown extends React.Component {
         return (
             <div ref={notebookmodal => this.notebookmodal = notebookmodal}>
                 <div className="notepad_notebook_dropdown_container" onClick={() => this.setOpen()}>
-                    <p className="notepad_notebook_dropdown_title">{notebookTitle}</p>
+                    <div className="notepad_notebook_dropdown_title">
+                        <FontAwesomeIcon icon={faBook} />
+                        <p>{notebookTitle}</p>
+                    </div>
                 </div>
                 <div className={this.state.open ? "notepad_notebook_dropdown_menu menu_open" : "notepad_notebook_dropdown_menu"}>
                     {notebookList}
