@@ -18,6 +18,8 @@ const mapStateToProps = (state, ownProps) => {
     }
 
     return {
+        path: ownProps.path,
+        history: ownProps.history,
         email: Object.values(state.entities.users)[0].email,
         note: { title: '', body: '', notebook_id: notebook_id },
         notes: Object.values(state.entities.notes).filter(note => {

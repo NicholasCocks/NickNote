@@ -29,9 +29,10 @@ class Api::NotesController < ApplicationController
     end
 
     def destroy
-        @note = current_user.notes.find(params[:id])
-        if @note && @note.delete
-            render json: ["note has been deleted"]
+        @notes = current_user.notes.where(trashed: true)
+        if @notes
+            @notes.destroy_all
+            render 'api/notes/index'
         end
     end
 

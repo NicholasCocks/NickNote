@@ -21,12 +21,11 @@ class Notebook extends React.Component {
             return  <NotebookItem key={index} note={note} notebookURL={this}/>
         }, notebookURL);
     }
-
-    createTagsList() {
-
-    }
     
     render() {
+        let TrashButton = this.props.deleteTrashedNotes ? 
+        <button className="notebook_header_trash_button" onClick={this.props.deleteTrashedNotes}>Trash</button> : null
+        
 
         return(
             <div className="notebook_container"> 
@@ -35,6 +34,7 @@ class Notebook extends React.Component {
                         <h3 className="notebook_header_heading">{this.props.notebookTitle}</h3>
                         <aside>
                             <p>{this.props.notesList.length} notes</p>
+                            {TrashButton}
                         </aside>
                     </header>
                     <div className="notebook_notebookitem_container">

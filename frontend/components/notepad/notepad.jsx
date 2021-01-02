@@ -78,7 +78,6 @@ class Notepad extends React.Component {
     }
 
     render() {
-        debugger
         let trashButton = this.props.note.trashed ? <MoveFromTrashButton /> : <MoveToTrashButton />
         let starbutton = this.props.note.starred ? <UnstarButton /> : <ToStarButton />
 
@@ -86,8 +85,11 @@ class Notepad extends React.Component {
             <div className="notepad_container">
                 <header className="notepad_header">
                     <div className="notepad_header_top_row">
-                        <div><button onClick={this.moveNoteStarred}>{starbutton}</button></div>
-                        <NotepadNotebookDropdown notebooks={this.props.notebooks} note={this.state.note}/>
+                        <button onClick={this.moveNoteStarred}>{starbutton}</button>
+                        <NotepadNotebookDropdown 
+                            updateNote={this.props.updateNote}
+                            notebooks={this.props.notebooks} 
+                            note={this.state.note}/>
                     </div>
                     <aside className="notepad_header_bottom_row">
                         <p> Last Updated {new Date(this.state.note.updated_at).toDateString()}</p>

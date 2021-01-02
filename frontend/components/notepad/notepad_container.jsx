@@ -29,7 +29,6 @@ class NotepadContainer extends React.Component {
     }
     
     const mapStateToProps = (state, ownProps) => {
-        debugger
         return {
             path: ownProps.match.path,
             history: ownProps.history,

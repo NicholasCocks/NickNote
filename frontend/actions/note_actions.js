@@ -19,13 +19,6 @@ const receiveNote = note => {
     }
 }
 
-const removeNote = note => {
-    return {
-        type: REMOVE_NOTE,
-        note
-    }
-}
-
 export const fetchAllNotes = () => dispatch => {
     return NoteApiUtil.fetchAllNotes().then(notes => dispatch(receiveAllNotes(notes)));
 }
@@ -40,4 +33,8 @@ export const createNote = (note) => dispatch => {
 
 export const updateNote = (note) => dispatch => {
     return NoteApiUtil.updateNote(note).then(note => dispatch(receiveNote(note)));
+}
+
+export const deleteTrashedNotes = () => dispatch => {
+    return NoteApiUtil.deleteTrashedNotes().then(notes => dispatch(receiveAllNotes(notes)))
 }

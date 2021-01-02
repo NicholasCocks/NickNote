@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Notebook from './notebook';
 import { fetchAllNotebooks } from '../../actions/notebook_actions';
-import { fetchAllNotes } from '../../actions/note_actions';
+import { fetchAllNotes, deleteTrashedNotes } from '../../actions/note_actions';
 import { fetchAllTags } from '../../actions/tags_actions';
 import { fetchAllTaggables } from '../../actions/taggable_actions';
 
@@ -11,7 +11,7 @@ import { fetchAllTaggables } from '../../actions/taggable_actions';
 class TrashContainer extends React.Component {
     render() {
         const { notes, notesList, fetchNotes, fetchNotebooks, 
-            fetchAllTags, fetchAllTaggables, notebookTitle, notebookURL } = this.props;
+            fetchAllTags, fetchAllTaggables, notebookTitle, notebookURL, deleteTrashedNotes } = this.props;
         return(
             <Notebook
             notes={notes}
@@ -21,7 +21,8 @@ class TrashContainer extends React.Component {
             notebookTitle={notebookTitle} 
             notebookURL={notebookURL} 
             fetchAllTags={fetchAllTags}
-            fetchAllTaggables={fetchAllTaggables}/>
+            fetchAllTaggables={fetchAllTaggables} 
+            deleteTrashedNotes={deleteTrashedNotes}/>
         )
     }
 }
@@ -43,6 +44,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchNotebooks: () => dispatch(fetchAllNotebooks()),
         fetchAllTags: () => dispatch(fetchAllTags()),
         fetchAllTaggables: () => dispatch(fetchAllTaggables()),
+        deleteTrashedNotes: () => dispatch(deleteTrashedNotes())
     }
 }
 

@@ -15,14 +15,41 @@
 }
 
 .notepad_notebook_dropdown_menu {
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     position: absolute;
     padding: 10px;
     border-radius: 7px;
     background-color: white;
-    color: $darkest-purple;
-    border: 1px solid $darkest-purple;
+    transform: translateY(20px);
+    color: $darkest-gray;
+    border: 1px solid $darkest-gray;
     z-index: 5;
+    transition: all .5 ease;
+    animation: slide-down 0.4s ease;
+    a {
+        font-size: small;
+        padding: 3px;
+        width: 100%;
+    }
+}
+
+.menu_open {
+    display: flex;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(20px);
+    }
+}
+
+.notebook_dropdown_active {
+    background-color: $lightest-gray;
 }
