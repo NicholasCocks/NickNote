@@ -12,24 +12,19 @@ class Notepad extends React.Component {
         this.state = { note: this.props.note, saved: true }
         this.updateField = this.updateField.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.moveNoteToTrash = this.moveNoteToTrash.bind(this);
-        this.moveNoteFromTrash = this.moveNoteFromTrash.bind(this);
+        this.moveNoteTrash = this.moveNoteTrash.bind(this);
         this.moveNoteStarred = this.moveNoteStarred.bind(this);
     }
 
-    moveNoteToTrash() {
-        this.props.note.trashed = true;
+    moveNoteTrash() {
+        this.state.note.trashed = !this.state.note.trashed;
+        this.setState({trashed: !this.state.note.trashed})
         this.props.updateNote(this.state.note);
     }
 
-    moveNoteFromTrash() {
-        this.props.note.trashed = false;
-        this.props.updateNote(this.state.note);
-    } 
-
     moveNoteStarred() {
-        this.props.note.starred = !this.props.note.starred;
-        this.setState({starred: !this.props.note.starred})
+        this.state.note.starred = !this.state.note.starred;
+        this.setState({starred: !this.state.note.starred})
         this.props.updateNote(this.state.note)
     }
 
@@ -78,15 +73,8 @@ class Notepad extends React.Component {
     }
 
     render() {
-        const urlTrashCheck = this.props.path.slice(7, 12);
-        let trashButton;
+        let trashButton = this.props.note.trashed ? <MoveFromTrashButton /> : <MoveToTrashButton />
         let starbutton = this.props.note.starred ? <UnstarButton /> : <ToStarButton />
-
-        if (this.state.note.trashed) { 
-            trashButton = <button onClick={this.moveNoteFromTrash}><MoveFromTrashButton /> Restore</button>
-        } else {
-            trashButton = <button onClick={this.moveNoteToTrash}><MoveToTrashButton /> Trash</button>
-        }
 
         return(
             <div className="notepad_container">
@@ -97,7 +85,7 @@ class Notepad extends React.Component {
                     </div>
                     <aside className="notepad_header_bottom_row">
                         <p> Last Updated {new Date(this.state.note.updated_at).toDateString()}</p>
-                        <div className="notepad_trash_button">{trashButton}</div>
+                        <div className="notepad_trash_button" onClick={this.moveNoteTrash}>{trashButton}</div>
                     </aside>
                 </header>
                 <div className="notepad_input_container">
@@ -127,7 +115,7 @@ class Notepad extends React.Component {
                         editor={ DecoupledEditor }
                         data={this.state.note.body}
                         config={ {toolbar: {
-                            items: [ 'bold', 'underline', 'strikethrough', 'undo', 'redo', 'numberedList', 'bulletedList' ],
+                            items: [ 'undo', 'redo', '|', 'fontFamily', '|', 'bold', 'underline', 'strikethrough', '|', 'fontColor' ],
                             viewportTopOffset: 30,
                             shouldNotGroupWhenFull: true
                             }, placeholder: 'Start writing...'} }

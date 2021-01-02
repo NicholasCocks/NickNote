@@ -6,6 +6,7 @@
     border-left: 1px solid $gray;
     padding-left: 14px;
     margin-left: 7px;
+    transition: all .5 ease;
 }
 
 .notepad_notebook_dropdown_title {
@@ -20,6 +21,8 @@
     position: absolute;
     padding: 10px;
     border-radius: 7px;
-    background-color: $darkest-purple;
-    color: white;
+    background-color: white;
+    color: $darkest-purple;
+    border: 1px solid $darkest-purple;
+    z-index: 5;
 }
