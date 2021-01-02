@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { updateNote } from '../../actions/note_actions';
 import { createTaggable, deleteTaggable } from '../../actions/taggable_actions';
 
@@ -8,12 +9,13 @@ import Notepad from './notepad';
 
 class NotepadContainer extends React.Component {
     render() {
-        const { note, updateNote, path, notebooks, taggables, tags,
+        const { note, updateNote, path, history, notebooks, taggables, tags,
         createTaggable, deleteTaggable } = this.props;
         if (!note) return null;
         return( 
             <Notepad 
             note={note}
+            history={history}
             notebooks={notebooks}
             path={path}
             updateNote={updateNote}
@@ -22,18 +24,20 @@ class NotepadContainer extends React.Component {
             createTaggable={createTaggable}
             deleteTaggable={deleteTaggable}
             />
-        )
+            )
+        }
     }
-}
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-        path: ownProps.match.path,
-        note: state.entities.notes[ownProps.match.params.noteId],
-        taggables: state.entities.taggables,
-        tags: state.entities.tags,
-        notebooks: state.entities.notebooks,
-    }
+    
+    const mapStateToProps = (state, ownProps) => {
+        debugger
+        return {
+            path: ownProps.match.path,
+            history: ownProps.history,
+            note: state.entities.notes[ownProps.match.params.noteId],
+            taggables: state.entities.taggables,
+            tags: state.entities.tags,
+            notebooks: state.entities.notebooks,
+        }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -45,4 +49,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotepadContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NotepadContainer));

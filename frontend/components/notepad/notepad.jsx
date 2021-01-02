@@ -4,7 +4,8 @@ import { ToStarButton, UnstarButton } from './notepad_star_icons';
 import NotepadNotebookDropdown from './notepad_notebook_dropdown'; 
 import NotepadTagDropDown from './notepad_tag_dropdown';
 import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
-import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import { Redirect } from "react-router-dom";
 
 class Notepad extends React.Component {
     constructor(props) {
@@ -20,6 +21,10 @@ class Notepad extends React.Component {
         this.state.note.trashed = !this.state.note.trashed;
         this.setState({trashed: !this.state.note.trashed})
         this.props.updateNote(this.state.note);
+        this.props.history.push(this.props.path
+            .replace(':notebookId', this.props.note.notebook_id)
+            .slice(0, -7)
+        );
     }
 
     moveNoteStarred() {
@@ -73,6 +78,7 @@ class Notepad extends React.Component {
     }
 
     render() {
+        debugger
         let trashButton = this.props.note.trashed ? <MoveFromTrashButton /> : <MoveToTrashButton />
         let starbutton = this.props.note.starred ? <UnstarButton /> : <ToStarButton />
 

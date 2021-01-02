@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar} from '@fortawesome/free-solid-svg-icons';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 class NotebookItem extends React.Component {
     favorited() {
@@ -17,6 +18,7 @@ class NotebookItem extends React.Component {
         const date = new Date(note.updated_at).toDateString();
         const notebookURL = this.props.notebookURL.props.notebookURL;
         let noteTitle = note.title;
+        let body = note.body.length > 50 ? note.body.slice(0, 50) + "..." : note.body
 
         if (note.title === "") { noteTitle = "Untitled"}
         
@@ -25,7 +27,7 @@ class NotebookItem extends React.Component {
                 <main>
                     <div className="notebook_item_title"><p>{noteTitle}</p> {this.favorited()}</div>
                     
-                    <p className="notebook_item_body">{note.body.replace(/<[^>]+>/g, '')}</p>
+                    <p className="notebook_item_body">{ReactHtmlParser(body)}</p>
                 </main>
                 <p className="notebook_item_updated_at">{date}</p>
             </NavLink> 
