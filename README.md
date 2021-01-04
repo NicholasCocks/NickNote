@@ -13,7 +13,7 @@ Nicknote is an elegant, fully functional full-stack Evernote clone built on Reac
   * Frontend: React / Redux, JavaScript, Node.js, Webpack, CKEditor 5 
   * Backend: Ruby on Rails, JBuilder, Postgresql, SQL
   
- ![nicknote gif](/assets/images/nicknote.gif)
+ ![nicknote gif](/app/assets/images/nicknote.gif)
   
 ## Dee
 
