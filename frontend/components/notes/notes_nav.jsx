@@ -69,8 +69,15 @@ class NotesNav extends React.Component {
     }
 
     createNote() {
-        debugger
+        if (this.props.location.pathname.slice(0,16) === "/notes/notebook/") {
+            this.props.note.notebook_id = parseInt(this.props.location.pathname.slice(16))
+        }
+        
         this.props.createNote(this.props.note);
+        
+        if (this.props.location.pathname.slice(0,12) === "/notes/trash") {
+            this.props.history.push('/notes/index')
+        }
     }
 
     render() {

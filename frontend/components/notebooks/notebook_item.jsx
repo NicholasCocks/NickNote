@@ -27,7 +27,7 @@ class NotebookItem extends React.Component {
                 <main>
                     <div className="notebook_item_title"><p>{noteTitle}</p> {this.favorited()}</div>
                     
-                    <p className="notebook_item_body">{ReactHtmlParser(body)}</p>
+                    <div className="notebook_item_body">{ReactHtmlParser(body)}</div>
                 </main>
                 <p className="notebook_item_updated_at">{date}</p>
             </NavLink> 
