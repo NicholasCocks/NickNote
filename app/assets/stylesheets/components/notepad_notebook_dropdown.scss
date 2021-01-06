@@ -32,10 +32,11 @@
     background-color: white;
     transform: translateY(20px);
     color: $darkest-gray;
-    border: 1px solid $darkest-gray;
+    // border: 1px solid $darkest-gray;
     z-index: 5;
     transition: all .5 ease;
     animation: slide-down 0.4s ease;
+    box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.2);
     a {
         font-size: small;
         padding: 3px;
