@@ -66,7 +66,7 @@ class NotepadTagDropDown extends React.Component {
               this.tags.push(this.props.tags[taggable.tag_id]);
               return (
                 <div  key={index} className="notepad_tag_drop_tag_container">
-              <p>{this.props.tags[taggable.tag_id].title}
+              <p><NavLink activeClassName="notepad_tag_drop_active" to={`/notes/tags/${taggable.tag_id}/`}>{this.props.tags[taggable.tag_id].title}</NavLink>
               <FontAwesomeIcon icon={faPlus} transform={{ rotate: 45 }} onClick={() => this.deleteTaggable(taggable)}/>
               </p></div>)
           }

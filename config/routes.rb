@@ -10,6 +10,7 @@
 #                           PATCH  /api/notes/:id(.:format)                                                                 api/notes#update {:format=>:json}
 #                           PUT    /api/notes/:id(.:format)                                                                 api/notes#update {:format=>:json}
 #                           DELETE /api/notes/:id(.:format)                                                                 api/notes#destroy {:format=>:json}
+#           api_notes_trash DELETE /api/notes/trash(.:format)                                                               api/notes#trash {:format=>:json}
 #             api_notebooks GET    /api/notebooks(.:format)                                                                 api/notebooks#index {:format=>:json}
 #                           POST   /api/notebooks(.:format)                                                                 api/notebooks#create {:format=>:json}
 #              api_notebook PATCH  /api/notebooks/:id(.:format)                                                             api/notebooks#update {:format=>:json}
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     resources :notes, only: [:index, :show, :create, :update, :destroy] do
       # resources :taggables, only: [:create, :destroy]
     end
+    match 'notes/trash' => 'notes#trash', :via => :delete
     resources :notebooks, only: [:index, :create, :destroy, :update]
     resources :tags, only: [:index, :show, :create, :destroy, :update] 
     resources :taggables, only: [:index, :create, :destroy]

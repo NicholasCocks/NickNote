@@ -13,17 +13,19 @@ import { Switch, withRouter } from 'react-router-dom';
 class NotesApp extends React.Component {
     constructor(props) {
         super(props)
-        this.logout = this.logout.bind(this);
+        this.state = {dark: false}
+        this.switchThemes = this.switchThemes.bind(this);
     }
 
-    logout() {
-        this.props.logout();
+    switchThemes() {
+        this.setState({dark: !this.state.dark})
+        console.log(this.state)
     }
 
     render() {
         return (
-            <div className="notes_full_page">
-                <NotesNavContainer />
+            <div className={this.state.dark ? "notes_full_page theme_dark" : "notes_full_page theme_light"}>
+                <NotesNavContainer switchThemes={this.switchThemes}/>
                 <Switch>
                     <ProtectedRoute path="/notes/notebook/index" component={NotebooksIndexContainer}/>
                     <ProtectedRoute path="/notes/tags/index" component={TagsIndexContainer} />

@@ -28,9 +28,9 @@ export const updateNote = (note) => {
     })
 }
 
-export const deleteTrashedNotes = () => {
+export const deleteTrashedNotes = (note) => {
     return $.ajax({
         method: 'DELETE',
-        url: `api/note/`
+        url: `api/notes/${note.id}`
     })
 }

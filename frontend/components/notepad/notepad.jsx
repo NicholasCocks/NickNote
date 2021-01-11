@@ -105,8 +105,6 @@ class Notepad extends React.Component {
                         className="notepad_input_title" />
                     <CKEditor
                         onReady={ editor => {
-                            console.log( 'Editor is ready to use!', editor );
-
                             editor.ui.getEditableElement().parentElement.parentElement.insertBefore(
                                 editor.ui.view.toolbar.element,
                                 editor.ui.getEditableElement().parentElement.parentElement.childNodes[1]

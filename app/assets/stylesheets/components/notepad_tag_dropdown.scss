@@ -40,6 +40,7 @@
     p:hover {
         background-color: $light-gray;
     }
+    
 }
 
 .notepad_tag_drop_tags_container {
@@ -57,6 +58,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(238, 238, 238);
+    color: $dark-gray;
     font-size: small;
     padding: 5px;
     padding-left: 10px;
@@ -64,6 +66,9 @@
     border-radius: 15px;
     margin-left: 8px;
     height: 25px;
+    a:hover {
+        color: black;
+    }
     svg {
         margin-left: 5px;
         cursor: pointer;
