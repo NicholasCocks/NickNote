@@ -41,7 +41,7 @@ There's some code that handles the display of autosave but the actual functional
     }
 `
 ### Sharing the Notebook Component
-'All Notes', 'Starred', 'Trash' 'Tags' and 'Notebooks' all share the same Notebook / Notepad component. This makes fixing bugs and adding features fast and straightforward as code only needs to be written in one place. This also means switching between views is incredibly fast as I can have all a user's note data be fetched on mounting and it is saved in Redux's Store until needed for any specific display. 
+'All Notes', 'Starred', 'Trash' 'Tags', and 'Notebooks' all share the same Notebook / Notepad component. This makes fixing bugs and adding features fast and straightforward as code only needs to be written in one place. This also means switching between views is incredibly fast as I can have all a user's note data be fetched on mounting and it is saved in Redux's Store until needed for any specific display. 
 
 ## Upcoming Additional Features
  * Searching for notes using multiple tags.
