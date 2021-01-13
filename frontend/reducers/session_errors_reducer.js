@@ -7,11 +7,12 @@ function sessionErrorsReducer(state = [], action) {
         case (RECEIVE_CURRENT_USER):
             return [];
         case (CLEAR_ERRORS):
-            let blankState = Object.assign({}, { errors: [""] });
+            let blankState = Object.assign({}, { errors: "" });
             return Object.values(blankState);
         case (RECEIVE_ERRORS):
-            const newState = Object.assign({}, { errors: [action.errors.responseJSON] })
-            return Object.values(newState);
+            const newState = Object.assign({}, { errors: action.errors.responseJSON })
+            debugger
+            return Object.values(newState)[0];
         default:
             return state;
     }

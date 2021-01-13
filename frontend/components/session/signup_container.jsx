@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { signupAction, clearErrors, loginDemoUser } from '../../actions/session';
 
 const mapStateToProps = (state) => {
+    debugger
     return {
-        errors: Object.values(state.errors), 
+        errors: Object.values(state.errors.session), 
         formType: 'Signup',
         blurb: "Already have an account?",
         sessionLink: <Link to="/session/login">Login</Link>,

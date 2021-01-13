@@ -127,7 +127,7 @@ class NotesNav extends React.Component {
                 <NavLink to="/notes/notebook/index" className="notes_nav_link"><FontAwesomeIcon icon={faBook}/>Notebooks</NavLink>
                 <NavLink to="/notes/tags/index" className="notes_nav_link"><FontAwesomeIcon icon={faTag}/>Tags</NavLink>
                 <NavLink to="/notes/trash" className="notes_nav_link"><FontAwesomeIcon icon={faTrash}/>Trash</NavLink>
-                <div onClick={this.props.switchThemes}>Dark Mode</div>
+                {/* <div onClick={this.props.switchThemes}>Dark Mode</div> */}
                 <div className="notes_nav_about_links_bar">
                     <a target="_blank" href="https://github.com/NicholasCocks"><FontAwesomeIcon icon={faGithub} className="notes_nav_about_link" /></a>
                     <a target="_blank" href="https://www.linkedin.com/in/nicholas-cocks/"><FontAwesomeIcon icon={faLinkedin} className="notes_nav_about_link" /></a>

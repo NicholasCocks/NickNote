@@ -36,7 +36,8 @@ class SessionForm extends React.Component {
     render() {
 
         const errors = this.props.errors.map((error, i) => {
-            return <p key={i} >{error}</p>
+            debugger
+            return <p key={i}>{error}</p>  
         });
         const picon = () => { if (this.state.passwordShown){ return faEye } else {return faEyeSlash}}
 
