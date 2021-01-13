@@ -6,6 +6,7 @@ import NotebooksIndex from './notebooks_index';
 
 const mapStateToProps = (state) => {
     return {
+        errors: Object.values(state.errors.notebook),
         notebooks: state.entities.notebooks
     }
 }

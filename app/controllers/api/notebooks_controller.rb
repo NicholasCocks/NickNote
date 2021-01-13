@@ -9,6 +9,8 @@ class Api::NotebooksController < ApplicationController
         @notebook.author_id = current_user.id
         if @notebook.save
             render 'api/notebooks/show'
+        else 
+            render json: @notebook.errors.full_messages, status: 401
         end
     end
 

@@ -27,6 +27,9 @@ class NotebooksIndex extends React.Component {
 
         e.preventDefault();
         this.props.createNotebook({title: this.state.title});
+        // if (this.state.title !== "") {
+        //     this.setOpen() 
+        // }
     }
 
     update(field) {
@@ -38,17 +41,22 @@ class NotebooksIndex extends React.Component {
         const notebookList = Object.values(this.props.notebooks).map((notebook, index) => {
             return <NotebookIndexItemContainer key={index} notebook={notebook} />
         })
+        const errors = this.props.errors.map((error, i) => {
+            return <p key={i} >{error}</p>
+        });
 
         if (this.state.open) {
             form = <form className="notebook_index_create_notebook_container" onSubmit={this.createNotebook}>
                     <div className="notebook_index_create_header">
-                        <h3>Create Notebook</h3>
+                        <h3>Create New Notebook</h3>
                         <button onClick={() => this.setOpen()}><FontAwesomeIcon icon={faPlus} transform={{ rotate: 45 }}/></button>
                     </div>
                     <p>Notebooks are useful for grouping notes around a common topic.</p>
-                    <input type="text" placeholder="Name" onChange={this.update('title')}/>
+                    <div className="notebook_index_errors">{errors}</div>
+                    <p>Name</p>
+                    <input type="text" placeholder="Notebook Name" onChange={this.update('title')}/>
                     <div className="notebook_index_create_button_container">
-                        <button type="submit" >Create</button>
+                        <button type="submit">Create</button>
                     </div>
                 </form>
         } else {

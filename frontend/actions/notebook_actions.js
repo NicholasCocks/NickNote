@@ -3,6 +3,7 @@ import * as NoteBookApiUtil from '../util/notebooks_api';
 export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKS';
 export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
+export const RECEIVE_NOTEBOOK_ERRORS = 'RECEIVE_NOTEBOOK_ERRORS';
 
 const receiveAllNotebooks = notebooks => {
     return {
@@ -25,6 +26,13 @@ const removeNotebook = notebook => {
     }
 }
 
+const receiveNotebookErrors = errors => {
+    return {
+        type: RECEIVE_NOTEBOOK_ERRORS,
+        errors
+    }
+}
+
 export const fetchAllNotebooks = () => dispatch => {
     return NoteBookApiUtil.fetchAllNotebooks().then(notebooks => dispatch(receiveAllNotebooks(notebooks)));
 }
@@ -34,7 +42,8 @@ export const fetchNotebook = (notebookId) => dispatch => {
 }
 
 export const createNotebook = (notebook) => dispatch => {
-    return NoteBookApiUtil.createNotebook(notebook).then(notebook => dispatch(receiveNotebook(notebook)));
+    return NoteBookApiUtil.createNotebook(notebook).then(notebook => dispatch(receiveNotebook(notebook)), 
+    errors => dispatch(receiveNotebookErrors(errors)));
 }
 
 export const updateNotebook = (notebook) => dispatch => {

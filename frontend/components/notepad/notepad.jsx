@@ -121,7 +121,7 @@ class Notepad extends React.Component {
                         editor={ DecoupledEditor }
                         data={this.state.note.body}
                         config={ {toolbar: {
-                            items: [ 'undo', 'redo', '|', 'fontFamily', '|', 'bold', 'underline', 'strikethrough', '|', 'fontColor' ],
+                            items: [ 'undo', 'redo', '|', 'fontFamily', '|', 'bold', 'underline', 'strikethrough', ],
                             viewportTopOffset: 30,
                             shouldNotGroupWhenFull: true
                             }, placeholder: 'Start writing...'} }
