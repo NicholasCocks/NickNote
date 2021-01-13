@@ -56,7 +56,8 @@ class NotebooksIndex extends React.Component {
                     <p>Name</p>
                     <input type="text" placeholder="Notebook Name" onChange={this.update('title')}/>
                     <div className="notebook_index_create_button_container">
-                        <button type="submit">Create</button>
+                        <button onClick={this.setOpen} className="notebook_index_cancel">Cancel</button>
+                        <button className="notebook_index_create"type="submit">Create</button>
                     </div>
                 </form>
         } else {

@@ -115,7 +115,7 @@ class NotesNav extends React.Component {
                     <input
                     onChange={this.handleInput}
                     value={this.state.inputVal}
-                    placeholder='Search...'
+                    placeholder='Search Titles...'
                     />
                 </div>
                 <ul className={`${searchResultsClass}`}>

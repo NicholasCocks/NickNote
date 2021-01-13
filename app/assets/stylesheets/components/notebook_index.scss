@@ -53,7 +53,7 @@
     right: 40vw;
     h3 {
         font-size: large;
-        font-weight: bold;
+        color: $darkest-gray;
     } 
     svg:hover {
         color: $gray;
@@ -95,19 +95,39 @@
     border-top: 1px solid $light-gray;
     margin-top: 25px;
     padding-top: 10px; 
-    button {
-        padding: 7px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border: 1px solid $gray;
-        border-radius: 7px;
-        background-color: $gray;
-        color: white;
-    }
-    button:hover {
-        background-color: $dark-gray;
-    }
-    button:active {
-        background-color: $darkest-gray;
-    }
+}
+
+.notebook_index_create {
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid $gray;
+    border-radius: 7px;
+    background-color: $gray;
+    color: white;
+    margin-left: 10px;
+}
+
+.notebook_index_create:hover {
+    background-color: $dark-gray;
+}
+
+.notebook_index_create:active {
+    background-color: $darkest-gray;
+}
+
+.notebook_index_cancel {
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid $gray;
+    border-radius: 7px;
+}
+
+.notebook_index_cancel:hover {
+    background-color: $light-gray;
+}
+
+.notebook_index_cancel:active {
+    background-color: $gray;
 }
