@@ -73,11 +73,11 @@ class NotesNav extends React.Component {
             this.props.note.notebook_id = parseInt(this.props.location.pathname.slice(16))
         }
         
-        this.props.createNote(this.props.note);
-        
-        if (this.props.location.pathname.slice(0,12) === "/notes/trash") {
-            this.props.history.push('/notes/index')
-        }
+        let that = this;
+
+        this.props.createNote(this.props.note).then((response) => {
+            that.props.history.push(`/notes/index/${response.note.id}`)
+        });
     }
 
     render() {

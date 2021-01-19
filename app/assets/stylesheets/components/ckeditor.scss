@@ -7,3 +7,9 @@
     height: 100%;
     width: 100%;
 }
+
+.ck-content > * {
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+}
