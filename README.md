@@ -36,7 +36,7 @@ There's some code that handles the display of autosave but the actual functional
             }, 1000)
         }
 
-        //statesave
+        //note saved
         return e => this.setState({note: Object.assign({}, this.state.note, { [field]: e.currentTarget.value } ), saved: false}); 
     }
 `
