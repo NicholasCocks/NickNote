@@ -1,5 +1,5 @@
 # NickNote
-Nicknote is an elegant, fully functional full-stack Evernote clone built on React / Redux and Ruby on Rails. [Live link](https://nicknote.herokuapp.com/) :).
+Nicknote is an elegant, fully functional full-stack Evernote clone built on React / Redux and Ruby on Rails. [Live link](https://nicknote.herokuapp.com/) :)
 
 ## Key Features && MVPs
  * Create, favorite, and move notes between notebooks.
@@ -36,7 +36,7 @@ There's some code that handles the display of autosave but the actual functional
             }, 1000)
         }
 
-        //statesave
+        //note saved
         return e => this.setState({note: Object.assign({}, this.state.note, { [field]: e.currentTarget.value } ), saved: false}); 
     }
 `
