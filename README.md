@@ -1,6 +1,8 @@
 # NickNote
 Nicknote is an elegant, fully functional full-stack Evernote clone built on React / Redux and Ruby on Rails. [Live link](https://nicknote.herokuapp.com/) :)
 
+Redeployed to heroku as of 2-3-20.
+
 ## Key Features && MVPs
  * Create, favorite, and move notes between notebooks.
  * Create notebooks.
